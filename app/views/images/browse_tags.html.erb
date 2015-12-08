@@ -1,0 +1,8 @@
+Browse tags:<br>
+<% @tags.each do |tag| %>
+  <%= raw tag_links(tag[0]) %>
+  <%= image_tag tag[1] %><br>
+<% end %>
+
+<%= link_to 'Home', root_path %>
+

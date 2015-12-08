@@ -10,6 +10,10 @@ class ImagesController < ApplicationController
     end
   end
 
+  def browse_tags
+    @tags = get_tags
+  end
+
   def show
   end
 
@@ -52,4 +56,17 @@ class ImagesController < ApplicationController
   def find_image
     @image = Image.find(params[:id])
   end
+
+  def get_tags
+    tags = Hash.new
+    Tag.all.each do |tag|
+      if tags[tag.name]
+        next
+      else
+        tags[tag.name] = tag.images.first.image.url(:medium)
+      end
+    end
+    tags
+  end
+
 end
