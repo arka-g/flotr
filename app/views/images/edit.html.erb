@@ -1,0 +1,6 @@
+<h1>Edit Image</h1>
+
+<%= render partial: 'form' %>
+
+<%= link_to 'Delete', image_path(@image), method: :delete, data: { confirm: "Are you sure?" } %>
+
