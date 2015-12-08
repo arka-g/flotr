@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :find_image, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @images = Image.all
@@ -9,11 +10,11 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = Image.new
+    @image = current_user.images.build
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = current_user.images.build(image_params)
     if @image.save
       redirect_to @image
     else
