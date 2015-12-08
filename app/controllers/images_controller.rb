@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
 
   def index
     if params[:tag]
-      @images = Image.tagged(params[:tag])
+      @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
       @images = Image.all.paginate(:page => params[:page], :per_page => 1)
     end
