@@ -1,5 +1,5 @@
 <h1><%= @image.title %></h1>
-<h2><%= @image.tags %></h2>
+<h2><%=raw tag_links(@image.all_tags) %></h2>
 <%= image_tag @image.try(:image).url(:large) %>
 
 <%= link_to 'Edit', edit_image_path(@image) %>

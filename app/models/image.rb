@@ -3,4 +3,20 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :user
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  def all_tags=(names)
+    self.tags = names.split(',').map do |name|
+      Tag.where(name: name.strip).first_or_create!
+    end
+  end
+
+  def all_tags
+    self.tags.map(&:name).join(', ')
+  end
+
+  def self.tagged(name)
+    Tag.find_by_name!(name).images
+  end
 end
