@@ -1,0 +1,9 @@
+<%= form_for(@image) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :tags %>
+  <%= f.text_field :tags %><br>
+  <%= f.file_field :image %><br>
+
+  <%= f.submit "Save Image" %>
+<% end %>
