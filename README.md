@@ -8,6 +8,7 @@ Check out the milestone design document [here](https://drive.google.com/file/d/0
 * cd into the repo
 * `bundle install`
 * `rails server`
+* To run migrations: `rake db:migrate`
 * head over to `localhost:3000` on your browser ✨
 
 ## Contributing
