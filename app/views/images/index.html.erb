@@ -1,4 +1,4 @@
-Browse tags: <%= raw tag_links(Tag.all.map(&:name).join(', ')) %>
+<%= will_paginate @images %>
 <% @images.each do |img| %>
   <h2>Image #<%= link_to img.id, img %></h2>
   <p>
