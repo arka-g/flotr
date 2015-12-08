@@ -9,6 +9,7 @@ Check out the milestone design document [here](https://drive.google.com/file/d/0
 * `bundle install`
 * `rails server`
 * To run migrations: `rake db:migrate`
+* To get the `paperclip` gem working, you need to install imagemagick: `brew install imagemagick` (for Mac's)
 * head over to `localhost:3000` on your browser ✨
 
 ## Contributing
