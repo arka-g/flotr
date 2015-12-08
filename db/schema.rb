@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208054341) do
+ActiveRecord::Schema.define(version: 20151208194639) do
 
   create_table "images", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 20151208054341) do
     t.datetime "image_updated_at"
     t.integer  "user_id"
   end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "image_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["image_id"], name: "index_taggings_on_image_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

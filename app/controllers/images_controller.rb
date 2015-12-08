@@ -3,7 +3,11 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @images = Image.all
+    if params[:tag]
+      @images = Image.tagged(params[:tag])
+    else
+      @images = Image.all
+    end
   end
 
   def show
@@ -42,7 +46,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:title, :tags, :image)
+    params.require(:image).permit(:title, :tags, :image, :all_tags)
   end
 
   def find_image
