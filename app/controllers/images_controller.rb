@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :browse_tags]
 
   def index
-    @images = Image.all.paginate(:page => params[:page], :per_page => 1)
+    @images = Image.unique_tag_images.paginate(:page => params[:page], :per_page => 1)
   end
 
   def tags
