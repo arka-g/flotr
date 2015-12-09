@@ -2,5 +2,12 @@
 <h2><%=raw tag_links(@image.all_tags) %></h2>
 <%= image_tag @image.try(:image).url(:large) %>
 
+<% @image.comments.each do |comment| %>
+  <h4><%= comment.user.email %></h4>
+  <%= comment.body %>
+<% end %>
+
+<%= render partial: 'comments/form' %>
+
 <%= link_to 'Edit', edit_image_path(@image) %>
 <%= link_to 'Home', root_path %>

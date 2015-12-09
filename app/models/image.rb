@@ -5,6 +5,7 @@ class Image < ActiveRecord::Base
   belongs_to :user
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :comments
 
   def all_tags=(names)
     self.tags = names.split(',').map do |name|
