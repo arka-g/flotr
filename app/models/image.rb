@@ -3,8 +3,9 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   acts_as_votable
   validates :all_tags, presence: true
-  validates :title, presence: true, length: { minimum: 3}
+  validates :title, presence: true, length: { minimum: 3 }
   validates :image, presence: true
+
 
   belongs_to :user
   has_many :taggings
