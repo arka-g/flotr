@@ -1,6 +1,7 @@
 <%= will_paginate @images %>
 
 <%=javascript_tag do %>
+$('.pagination').hide();
 $(document).bind('keyup', function(e){
   if(e.which==39 || e.which==37) {
     var url = window.location.href;
