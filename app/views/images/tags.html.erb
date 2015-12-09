@@ -3,5 +3,3 @@
 <% @images.each do |img| %>
   <%= image_tag img.image.url(:large) %>
 <% end %>
-<br>
-<%= link_to 'Browse Tags', browse_path %>

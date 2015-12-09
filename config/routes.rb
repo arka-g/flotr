@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  get 'tags/:tag', to: 'images#index', as: "tag"
+  get 'tags/:tag', to: 'images#tags', as: "tag"
   get 'browse', to: 'images#browse_tags'
 
   root 'images#index'
