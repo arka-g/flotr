@@ -1,6 +1,7 @@
 <%= will_paginate @images %>
 
 <%=javascript_tag do %>
+<<<<<<< HEAD
 $(document).bind('keyup', function(e){
   if(e.which==39) {
     var url = window.location.href;
@@ -11,6 +12,23 @@ $(document).bind('keyup', function(e){
       value = 1;
     }
     if(value <= <%= @images.total_pages %>){
+=======
+$('.pagination').hide();
+$(document).bind('keyup', function(e){
+  if(e.which==39 || e.which==37) {
+    var url = window.location.href;
+    var value = url.substring(url.lastIndexOf('/') + 1);
+    if(value.indexOf('images?page=') >= 0){
+      if(e.which==37){
+        value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
+      }else{
+      value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
+      }
+    }else{
+      value = 1;
+    }
+    if(value <= <%= @images.total_pages %> && value > 0){
+>>>>>>> d06b4c38e2859f9a0e40b5d3af6852c8bcdef1b1
     window.location = "images?page="+value;
     }
   }
