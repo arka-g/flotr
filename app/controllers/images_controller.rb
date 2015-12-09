@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :find_image, only: [:show, :edit, :update, :destroy, :like, :dislike]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :browse_tags]
 
   def index
     # if params[:tag]
