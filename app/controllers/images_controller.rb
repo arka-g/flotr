@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :find_image, only: [:show, :edit, :update, :destroy]
+  before_action :find_image, only: [:show, :edit, :update, :destroy, :like, :dislike]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -45,6 +45,16 @@ class ImagesController < ApplicationController
     @image.image = nil
     @image.destroy
     redirect_to root_path
+  end
+
+  def like
+    @image.upvote_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    @image.downvote_from current_user
+    redirect_to :back
   end
 
   private
