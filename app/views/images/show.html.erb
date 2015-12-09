@@ -2,5 +2,23 @@
 <h2><%=raw tag_links(@image.all_tags) %></h2>
 <%= image_tag @image.try(:image).url(:large) %>
 
-<%= link_to 'Edit', edit_image_path(@image) %>
+<% @image.comments.each do |comment| %>
+  <h4><%= comment.user.email %></h4>
+  <%= comment.body %>
+  <% if comment.user == current_user %>
+    <%= link_to "Delete Comment", [comment.image, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>
+
+<%= render partial: 'comments/form' %>
+<%= link_to like_image_path(@image), method: :get do %>
+  Upvote
+  <%= @image.get_upvotes.size %> <br>
+<% end %>
+<%= link_to dislike_image_path(@image), method: :get do %>
+  Downvote
+  <%= @image.get_downvotes.size %> <br>
+<% end %>
+
+<%= link_to 'Edit', edit_image_path(@image) %> <br>
 <%= link_to 'Home', root_path %>

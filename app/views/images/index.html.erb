@@ -1,4 +1,3 @@
-Browse tags: <%= raw tag_links(Tag.all.map(&:name).join(', ')) %>
 <% @images.each do |img| %>
   <h2>Image #<%= link_to img.id, img %></h2>
   <p>
@@ -13,4 +12,4 @@ Browse tags: <%= raw tag_links(Tag.all.map(&:name).join(', ')) %>
 
 <% end %>
 
-
+<%= link_to 'Browse Tags', browse_path %>

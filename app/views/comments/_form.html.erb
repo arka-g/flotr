@@ -1,0 +1,6 @@
+<%= form_for [@image, @image.comments.build] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %><br>
+
+  <%= f.submit "Submit Comment" %>
+<% end %>

@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :find_image, only: [:show, :edit, :update, :destroy]
+  before_action :find_image, only: [:show, :edit, :update, :destroy, :like, :dislike]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -8,6 +8,10 @@ class ImagesController < ApplicationController
     else
       @images = Image.all
     end
+  end
+
+  def browse_tags
+    @tags = get_tags
   end
 
   def show
@@ -43,6 +47,16 @@ class ImagesController < ApplicationController
     redirect_to root_path
   end
 
+  def like
+    @image.upvote_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    @image.downvote_from current_user
+    redirect_to :back
+  end
+
   private
 
   def image_params
@@ -52,4 +66,17 @@ class ImagesController < ApplicationController
   def find_image
     @image = Image.find(params[:id])
   end
+
+  def get_tags
+    tags = Hash.new
+    Tag.all.each do |tag|
+      if tags[tag.name]
+        next
+      else
+        tags[tag.name] = tag.images.first.image.url(:medium)
+      end
+    end
+    tags
+  end
+
 end
