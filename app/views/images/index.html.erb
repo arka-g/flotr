@@ -1,17 +1,23 @@
-
 <%= will_paginate @images %>
+
+<%=javascript_tag do %>
+$(document).bind('keyup', function(e){
+  if(e.which==39) {
+    var url = window.location.href;
+    var value = url.substring(url.lastIndexOf('/') + 1);
+    if(value.indexOf('images?page=') >= 0){
+      value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
+    }else{
+      value = 1;
+    }
+    if(value <= <%= @images.total_pages %>){
+    window.location = "images?page="+value;
+    }
+  }
+});
+<% end %>
 <% @images.each do |img| %>
-  <%= image_tag img.image.url(:large) %>
-  <p>
-    <strong>Image Title:</strong>
-    <%= img.title %>
-  </p>
-
-  <p>
-    <strong>Image Tags:</strong>
-    <%= raw tag_links(img.all_tags) %>
-  </p>
-
+<%= image_tag img.image.url(:large) %>
 <% end %>
 
 <%= link_to 'Browse Tags', browse_path %>
