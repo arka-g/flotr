@@ -6,6 +6,10 @@ class ImagesController < ApplicationController
     @images = Image.unique_tag_images.paginate(:page => params[:page], :per_page => 1)
   end
 
+  def gotoImages
+    redirect_to images_path
+  end
+
   def tags
     @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 5)
   end

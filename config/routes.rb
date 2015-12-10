@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get 'browse', to: 'images#browse_tags'
   get 'profile', to: 'images#profile'
 
-  root 'images#index'
+  root 'images#gotoImages'
 end
