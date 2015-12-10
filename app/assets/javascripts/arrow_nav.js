@@ -14,7 +14,7 @@ $(document).bind('keyup', function(e){
       }
     }
     else{
-      value = 1;
+      value = 2;
     }
     if(window.location.href.indexOf("/images/") >= 0){
       cyclePage = false;
