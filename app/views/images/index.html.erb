@@ -5,3 +5,8 @@
 <% end %>
 <br>
 <%= link_to 'Browse Tags', browse_path %>
+
+<%= javascript_include_tag "indexJavascript" %>
+<%= javascript_tag do %>
+  setPageLimit(<%= @images.total_pages %>);
+<% end %>

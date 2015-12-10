@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'images#tags', as: "tag"
   get 'browse', to: 'images#browse_tags'
 
-  root 'images#index'
+  root 'images#gotoImages'
 end
