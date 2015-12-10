@@ -1,5 +1,7 @@
 <%= will_paginate @images %>
 
 <% @images.each do |img| %>
-  <%= image_tag img.image.url(:large) %>
+  <%= link_to img do %>
+    <%= image_tag img.image.url(:large) %>
+  <% end %>
 <% end %>
