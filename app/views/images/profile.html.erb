@@ -1,9 +1,8 @@
-<%= will_paginate @images %>
+User e-mail: <%= current_user.email %> <br>
 
 <% @images.each do |img| %>
   <%= link_to img do %>
     <%= image_tag img.image.url(:large) %>
   <% end %>
 <% end %>
-<br>
-<%= link_to 'Browse Tags', browse_path %>
+
