@@ -1,6 +1,7 @@
 var total_num_pages = 1;
 
 $(document).bind('keyup', function(e){
+  var cyclePage = true;
   if(e.which==39 || e.which==37) {
     var url = window.location.href;
     var value = url.substring(url.lastIndexOf('/') + 1);
@@ -15,7 +16,10 @@ $(document).bind('keyup', function(e){
     else{
       value = 1;
     }
-    if(value <= total_num_pages && value > 0 && (window.location.href.indexOf('/images') >= 0)){
+    if(window.location.href.indexOf("/images/") >= 0){
+      cyclePage = false;
+    }
+    if(value <= total_num_pages && value > 0 && (window.location.href.indexOf('/images') >= 0) && cyclePage){
       location.href = "images?page="+value;
     }
   }
