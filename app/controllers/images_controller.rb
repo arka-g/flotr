@@ -17,6 +17,10 @@ class ImagesController < ApplicationController
   def show
   end
 
+  def profile
+    @images = current_user.images
+  end
+
   def new
     @image = current_user.images.build
   end
