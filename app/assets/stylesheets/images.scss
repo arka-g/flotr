@@ -499,3 +499,133 @@ header form {
   border-radius: 0 5px 5px 0;
 }
 /* SEARCH END ----------------------------------- */
+
+/* COMMENTS/BUY START --------------------------- */
+#right-sidebar {
+  z-index: 101;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(27, 28, 29, 0.99);
+  color: white;
+  position: fixed;
+  right: -100%;
+  transition: right 300ms;
+}
+#right-sidebar.activated {
+  position: absolute;
+  right: 0;
+}
+
+#general-pic-info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #cecece;
+}
+
+#right-sidebar h1 {
+  padding: 5px 20px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+#right-sidebar h2 {
+  margin: 0;
+  padding: 0 20px;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: 1em;
+}
+
+.comment {
+  border-bottom: 1px solid #cecece;
+}
+
+#comments h3 {
+  padding: 5px 20px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+#comments h4 {
+  margin: 0;
+  padding: 0 20px;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: .85em;
+  margin-bottom: 20px;
+}
+
+.delete-btn {
+  float: right;
+  padding-right: 10px;
+}
+
+#comments form,
+#buy form {
+  padding: 20px;
+}
+
+#comments textarea {
+  width: 200px;
+  height: 75px;
+  border: 0;
+  border-radius: 4px;
+  padding: 5px;
+  color: black;
+}
+
+.comments-submit {
+  float: right;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 5px;
+  background-color: forestgreen;
+}
+
+#cc-info {
+  text-align: center;
+}
+
+#cc-info h3 {
+  float: left;
+}
+
+#card_num {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 0;
+  border-radius: 4px;
+  padding: 0 5px;
+  color: black;
+}
+
+#buy-now {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 5px;
+  background-color: forestgreen;
+  width: 200px;
+  height: 30px;
+}
+
+#package-select h4 {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+/* COMMENTS/BUY END ----------------------------- */
+
+#login-3 input:hover,
+#signup-4 input:hover,
+#buy-now:hover,
+.search-btn:hover,
+.comments-submit:hover {
+  -webkit-filter: brightness(90%);
+  filter: brightness(90%);
+}

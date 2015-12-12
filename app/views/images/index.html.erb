@@ -1,4 +1,4 @@
-<div id="menu">
+<div id="menu"> <!--  Main menu, slides out from left-->
   <span id="menu-close-btn" onclick="toggleMenu()">X</span>
   <h1>Flotr</h1>
   <% if user_signed_in? %>
@@ -13,7 +13,7 @@
   <% end %>
 </div>
 
-<div id="controls">
+<div id="controls"> <!-- Buttons/controls... the circular icons on the main page -->
   <div class="invisible">
     <%= will_paginate @tags %>
   </div>
@@ -82,7 +82,7 @@
   <span id="left-btn" class="flotr-chevron-left circle-icon chev-left" onclick="prevPage()"></span>
 </div>
 
-<div id="welcome" class="invisible">
+<div id="welcome" class="invisible"> <!-- Welcome/Info screen, set to "invisible" by default -->
   <h1 class="main-title">Welcome to Flotr!</h1>
   <h2 class="main-subtitle">Your ultimate source of inspiration.</h2>
   <h3 class="main-text">Navigate with your keyboard:</h3>
@@ -93,7 +93,7 @@
   </div>
 </div>
 
-<div id="bg">
+<div id="bg"> <!-- background/big picture -->
   <!--  link_to tag.images.first do  -->
   <% @tags.each do |tag| %>
     <%= image_tag( tag.images.first.image.url, :class => "bg-img" ) %>
@@ -104,18 +104,28 @@
   <% end %>
 </div>
 
+
+<!-- I know this isn't the best practice, and it needs a few fixes, but it works for now... -->
+<!-- This JS handles most of the keypresses on the main page, and links the buttons to their functions -->
 <script type="text/javascript">
+  // bootleg way of getting access to attributes of the images outside of that ruby loop
+  // basically, when ruby paginates the images, I store relevant data in hidden elements on the page.
+  // then, when I need it I just make a jQuery call to grab it.
+  // currently doing this for the title, tag, buy, and comment links.
   $(document).ready(function() {
     $("#more-btn").attr('href', $("#more-rb").attr('href'));
-    $("#comment-btn").attr('href', $("#link-rb").attr('href'));
-    $("#buy-btn").attr('href', $("#link-rb").attr('href'));
+    $("#comment-btn").attr('href', $("#link-rb").attr('href') + "#comment");
+    $("#buy-btn").attr('href', $("#link-rb").attr('href') + "#buy");
     $("#info-title").text("Title: " + $("#title-rb").text());
     $("#info-tag").text("Tag: " + $("#tag-rb").text());
+    // session storage came to the rescue for showing that "welcome" thing on first visit
     if (!sessionStorage.seenInfo) {
       info();
       sessionStorage.seenInfo = "true";
     }
   });
+
+  // bunch 'o toggle functions for menu, like button, etc
   var toggleMenu = function () {
     $('#menu').toggleClass("activated");
   };
@@ -128,6 +138,7 @@
         $('#like-btn').addClass("flotr-heart-o");
     }
   };
+  // this guy toggles the welcome screen
   var info = function() {
     if ($('#bg').hasClass('blur')) {
       hideInfo();
@@ -148,9 +159,15 @@
     $('#pic-info').css('opacity','1');
     $('.tooltip').css('opacity','1');
   }
+  // close the welcome screen on any click
   $('#welcome').click(function() {
     info();
   });
+
+  // FIX-ME: this is causing errors when logging in and on
+  // other pages. Maybe need to move this to arrow_nav or something?
+  // it's getting called on Browse Tags page and Log-in/Sign-up sometimes
+  // and causing routing errors
   $(document).bind('keyup', function(e) {
     var cyclePage = !(window.location.href.indexOf("/images/") >= 0);
       if((e.which==73) && cyclePage) {

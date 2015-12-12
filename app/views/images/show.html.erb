@@ -1,27 +1,54 @@
-<h1><%= @image.title %></h1>
-<h2><%= raw tag_links(@image.all_tags) %></h2>
-<%= image_tag @image.try(:image).url(:large) %>
+<!-- This is for the righti-sdebar, the thing that comes up when you click Comment or Buy -->
+<!-- The bootleg solution I used was to append #comment or #buy to the end of the URL when
+the user clicks "Comment" or "Buy", and then use jQuery to only show the relevant sidebar -->
 
-<% @image.comments.each do |comment| %>
-  <h4><%= comment.user.email %></h4>
-  <%= comment.body %>
-  <% if comment.user == current_user %>
-    <%= link_to "Delete Comment", [comment.image, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
+<!-- I'm using a javascript history.back call to take the user back when they click "X" to close the sidebar.
+which seems to show mixed results on different browsers. At worst, it takes two clicks to return the user back
+to where they came from. It works better than going straght back to home, because it keeps the user in context
+of the last picture they were looking at, but try it out for yourselves and see what you think. -->
 
-<% if user_signed_in? %>
-  <%= render partial: 'comments/form' %>
-  <%= link_to like_image_path(@image), method: :get do %>
-    Upvote
-    <%= @image.get_upvotes.size %> <br>
-  <% end %>
+<!-- If there's a better way to return the user to where they were, please FIX ME! -->
 
-  <%= render partial: 'buy' %>
-<% end %>
+<div id="right-sidebar" class="activated">
+  <span id="menu-close-btn"><a href="javascript:history.back(-1);">X</a></span>
+  <div id="general-pic-info">
+    <h1><%= @image.title %></h1>
+    <h2>Tags: <%= raw tag_links(@image.all_tags) %></h2>
+  </div>
 
-<% if user_signed_in? && (current_user.id == @image.user_id) %>
-  <%= link_to 'Edit', edit_image_path(@image) %> <br>
-<% end %>
+  <div id="comments" class="invisible">
+    <% @image.comments.each do |comment| %>
+      <div class="comment">
+        <% if comment.user == current_user %>
+          <%= link_to "x", [comment.image, comment], method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' }, :class => "delete-btn" %>
+        <% end %>
+        <h3><%= comment.user.email %></h3>
+        <h4><%= comment.body %></h4>
+      </div>
+    <% end %>
+    <%= render partial: 'comments/form' %>
+    <!-- <%= link_to like_image_path(@image), method: :get do %> -->
+    <!--  Upvote -->
+    <!-- <%= @image.get_upvotes.size %> <br> -->
+    <!-- <% end %> -->
+  </div>
 
-<%= link_to 'Home', root_path %>
+  <div id="buy" class="invisible">
+    <%= render partial: 'buy' %>
+    <!-- <%= link_to 'Edit', edit_image_path(@image) %> <br> -->
+  </div>
+</div>
+
+<div id="bg">
+  <%= image_tag @image.try(:image).url, :class => "bg-img" %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    if ( document.location.href.indexOf('#comment') > -1 ) {
+      $('#comments').removeClass("invisible");
+    } else {
+      $('#buy').removeClass("invisible");
+    }
+  });
+</script>

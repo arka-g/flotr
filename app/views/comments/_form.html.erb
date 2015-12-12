@@ -1,6 +1,4 @@
 <%= form_for [@image, @image.comments.build] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_field :body %><br>
-
-  <%= f.submit "Submit Comment" %>
+  <%= f.text_area :body, :placeholder => "Type a comment." %>
+  <%= f.submit "Submit", :class => "comments-submit" %>
 <% end %>

@@ -1,7 +1,10 @@
+<!-- FIX ME!! - I completely misesd this page. Will get to it later. -->
+<!-- It's what you see when you click on a specific tage from the "Browse Tags" view -->
+
 <%= will_paginate @images %>
 
 <% @images.each do |img| %>
   <%= link_to img do %>
-    <%= image_tag img.image.url(:medium) %>
+    <%= image_tag img.image.url, :class => "grid-image" %>
   <% end %>
 <% end %>
