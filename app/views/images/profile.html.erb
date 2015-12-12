@@ -1,8 +1,15 @@
-User e-mail: <%= current_user.email %> <br>
+<header>
+  <div id="header-logo">
+    <a href="/"><h1 class="header-left">Flotr</h1></a>
+  </div>
+  <h1 id="user-email" class="header-center"><%= current_user.email %></h1>
+</header>
 
-<% @images.each do |img| %>
-  <%= link_to img do %>
-    <%= image_tag img.image.url(:large) %>
+<div id="grid">
+  <% @images.each do |img| %>
+    <%= link_to img do %>
+      <%= image_tag img.image.url, :class => "grid-image" %>
+      <!--- <p class="grid-title"><%= img.title %></p> -->
+    <% end %>
   <% end %>
-<% end %>
-
+</div>

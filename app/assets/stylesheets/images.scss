@@ -403,3 +403,42 @@ h3.main-text a:hover {
   background-color: crimson;
 }
 /* LOG IN END ---------------------------------------- */
+
+/* PROFILE START ------------------------------------- */
+#grid {
+  padding-top: 120px;
+}
+.grid-image {
+  margin: 0;
+  padding: 0;
+  object-position: center;
+  width: 33vw;
+  height: 24.75vw;
+}
+header {
+  position: fixed;
+  background-color: #1b1c1d;
+  color: white;
+  height: 120px;
+  width: 100vw;
+}
+#header-logo {
+  width: 150px;
+  padding-left: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.header-left {
+  font-family: "Lobster";
+  font-size: 3em;
+  font-weight: normal;
+}
+#user-email {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: 1.75em;
+}
+/* PROFILE END --------------------------------------- */
