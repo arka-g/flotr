@@ -25,19 +25,4 @@ class Image < ActiveRecord::Base
   def self.tagged(name)
     Tag.find_by_name!(name).images
   end
-
-  def self.unique_tag_images
-    unique_tags = Array.new
-    Tag.all.map do |tag|
-      tag.images.each do |image|
-        if unique_tags.include? image.id
-          next
-        else
-          unique_tags.push(image.id)
-        end
-      end
-    end
-    Image.where(id: unique_tags.map{|i| i})
-  end
-
 end

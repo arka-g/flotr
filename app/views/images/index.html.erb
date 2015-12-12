@@ -1,8 +1,8 @@
-<%= will_paginate @images %>
+<%= will_paginate @tags %>
 
-<% @images.each do |img| %>
-  <%= link_to img do %>
-    <%= image_tag img.image.url(:large) %>
+<% @tags.each do |tag| %>
+  <%= link_to tag do %>
+    <%= image_tag tag.images.first.image.url(:large) %>
   <% end %>
 <% end %>
 <br>
@@ -10,5 +10,5 @@
 
 <%= javascript_include_tag "arrow_nav" %>
 <%= javascript_tag do %>
-  setPageLimit(<%= @images.total_pages %>);
+  setPageLimit(<%= @tags.total_pages %>);
 <% end %>

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :images do
     member do
       get 'like', to: 'images#like'
-      get 'dislike', to: 'images#dislike'
     end
     resources :comments
   end
