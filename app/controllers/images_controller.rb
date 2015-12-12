@@ -18,6 +18,10 @@ class ImagesController < ApplicationController
     @tags = Tag.all
   end
 
+  def tag_pictures
+    @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 10)
+  end
+
   def show
   end
 

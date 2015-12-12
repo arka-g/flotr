@@ -4,6 +4,7 @@
   <%= link_to tag.images.first do %>
     <%= image_tag tag.images.first.image.url(:large) %>
     <%= link_to 'More like this', tag_path(tag: tag.name, page: 1) %>
+    Tag: <%= tag.name %>
   <% end %>
 <% end %>
 <br>
