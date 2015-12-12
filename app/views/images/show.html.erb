@@ -16,6 +16,7 @@
   <%= @image.get_upvotes.size %> <br>
 <% end %>
 
+<%= render partial: 'buy' %>
 
 <%= link_to 'Edit', edit_image_path(@image) %> <br>
 <%= link_to 'Home', root_path %>
