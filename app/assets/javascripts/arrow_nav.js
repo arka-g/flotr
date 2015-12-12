@@ -13,7 +13,7 @@ $(document).bind('keyup', function(e){
   }
 });
 
-function setPageLimit(size){
+function setPageLimit(size, path){
   total_num_pages = size;
 }
 
