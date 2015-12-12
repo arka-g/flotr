@@ -1,6 +1,6 @@
 Browse tags:<br>
 <% @tags.each do |tag| %>
-  <%= raw tag_links(tag.name) %>
+  <%= link_to tag.name, tag_pictures_path(tag: tag.name) %>
   <%= image_tag tag.images.first.image.url(:medium) %><br>
 <% end %>
 
