@@ -3,10 +3,10 @@
 <% @images.each do |img| %>
   <%= link_to img do %>
     <%= image_tag img.image.url(:large) %>
+    <%= link_to 'Back', images_path(page: 1) %>
   <% end %>
 <% end %>
-
 <%= javascript_include_tag "arrow_nav" %>
 <%= javascript_tag do %>
-  setPageLimit(<%= @images.total_pages %>, "<%= request.fullpath %>");
+  setPageLimit(<%= @images.total_pages %>, "<%= request.path %>");
 <% end %>
