@@ -1,5 +1,5 @@
 <h1><%= @image.title %></h1>
-<h2><%=raw tag_links(@image.all_tags) %></h2>
+<h2><%= raw tag_links(@image.all_tags) %></h2>
 <%= image_tag @image.try(:image).url(:large) %>
 
 <% @image.comments.each do |comment| %>
@@ -10,13 +10,18 @@
   <% end %>
 <% end %>
 
-<%= render partial: 'comments/form' %>
-<%= link_to like_image_path(@image), method: :get do %>
-  Upvote
-  <%= @image.get_upvotes.size %> <br>
+<% if user_signed_in? %>
+  <%= render partial: 'comments/form' %>
+  <%= link_to like_image_path(@image), method: :get do %>
+    Upvote
+    <%= @image.get_upvotes.size %> <br>
+  <% end %>
+
+  <%= render partial: 'buy' %>
 <% end %>
 
-<%= render partial: 'buy' %>
+<% if current_user.id == @image.user_id %>
+  <%= link_to 'Edit', edit_image_path(@image) %> <br>
+<% end %>
 
-<%= link_to 'Edit', edit_image_path(@image) %> <br>
 <%= link_to 'Home', root_path %>
