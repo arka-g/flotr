@@ -1,7 +1,7 @@
 Browse tags:<br>
 <% @tags.each do |tag| %>
   <%= raw tag_links(tag.name) %>
-  <%= image_tag tag.images.first.image.url(:large) %><br>
+  <%= image_tag tag.images.first.image.url(:medium) %><br>
 <% end %>
 
 <%= link_to 'Home', root_path %>
