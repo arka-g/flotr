@@ -1,20 +1,32 @@
 <%= form_for(@image) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: "Must be a minimum of 3 characters long" %><br>
-  <%= f.label :tags %>
-  <%= f.text_field :all_tags, placeholder: "Separated with comma, must be a minimum of 3 characters long" %><br>
-  <%= f.file_field :image %><br>
-  <%= f.submit "Save Image" %>
+
+  <div id="image-selector">
+    <%= f.file_field :image %>
+  </div>
+
+  <div id="login-1" class="field">
+    <%= f.text_field :title, placeholder: "Title – minimum of 3 characters long" %>
+    <span class="flotr-type"></span>
+  </div>
+
+  <div id="login-2" class="field upload-2">
+    <%= f.text_field :all_tags, placeholder: "Tags – separated with commas" %>
+    <span class="flotr-tags"></span>
+  </div>
+
+  <div id="login-3" class="actions">
+    <%= f.submit "Upload Image" %>
+  </div>
+
 
   <% if @image.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@image.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-    <ul>
-    <% @image.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

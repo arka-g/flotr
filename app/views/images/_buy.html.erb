@@ -1,17 +1,24 @@
 <form>
-  <h1>Select Package:</h1>
-  <input type="radio" name="price" value="$20" checked> Digital License $20<br>
-  <input type="radio" name="price" value="$69" checked> Canvas Print $69<br>
-  <input type="radio" name="price" value="$75" checked> Total Package $75<br>
-  <h1>Credit Card Number:</h1>
-  <input id ="card_num" type="text" maxlength="16" required><br>
-  <input type="submit" onClick="checkValues()" value="Buy Now!">
+  <div id="package-select">
+    <h3>Select a package:</h3>
+    <input type="radio" name="price" value="$20" checked>  Digital License .......... $20<br>
+    <h4>High-resolution JPEG, unlimited commercial use.</h4>
+    <input type="radio" name="price" value="$69" checked> Canvas Print ............. $69<br>
+    <h4>20" x 30" canvas print.</h4>
+    <input type="radio" name="price" value="$75" checked> Total Package ........... $75<br>
+    <h4>20" x 30" canvas print, high-res JPEG, unlimited commercial license.</h4>
+  </div>
+  <div id="cc-info">
+    <h3>Credit Card Number:</h3>
+    <input id ="card_num" type="text" maxlength="16" required placeholder="Must be 16-digits"><br>
+    <input type="submit" onClick="checkValues()" value="Buy Now!" id="buy-now">
+  </div>
 </form>
 <%= javascript_tag do %>
   function checkValues(){
     if($('#card_num').val() == 0){
     }else{
-      alert("");
+      alert("You must enter a valid 16-digit credit card number!");
     }
   }
 <% end %>

@@ -1,16 +1,27 @@
-Possible Search tags: <%= Tag.all.map{|tag| tag.name} %>
-
-<%= form_tag search_path, method: 'get' do %>
-  <p><%= text_field_tag :search, params[:search] %></p>
-  <%= submit_tag :search, name: nil %>
-<% end %>
-
-<% if @images.present? %>
-  <% @images.each do |img| %>
-    <%= link_to img do %>
-      <%= image_tag img.image.url(:large) %>
+<header class="search-header">
+  <div id="header-logo">
+    <a href="/"><h1 class="header-left">Flotr</h1></a>
+  </div>
+  <%= form_tag search_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= button_tag( :class => "search-btn") do %>
+      <i class="flotr-search"></i>
     <% end %>
   <% end %>
-<% else %>
-  <p>There are no images containing the tag <%= params[:search] %>. Try a different search!</p>
-<% end %>
+  <!-- <h1 id="user-email" class="header-center">Upload</h1> -->
+  <!-- Possible Search tags: <%= Tag.all.map{|tag| tag.name} %> -->
+</header>
+
+<div id="grid">
+  <% if @images.present? %>
+    <% @images.each do |img| %>
+      <div class="grid-image">
+          <%= image_tag img.image.url, :class => "grid-image" %>
+          <%= link_to img.title, img, :class => "grid-title" %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>There are no images containing the tag <%= params[:search] %>. Try a different search!</p>
+  <% end %>
+</div>
+

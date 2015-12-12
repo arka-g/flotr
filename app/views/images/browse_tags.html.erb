@@ -1,8 +1,15 @@
-Browse tags:<br>
-<% @tags.each do |tag| %>
-  <%= link_to tag.name, tag_pictures_path(tag: tag.name) %>
-  <%= image_tag tag.images.first.image.url(:medium) %><br>
-<% end %>
+<header>
+  <div id="header-logo">
+    <a href="/"><h1 class="header-left">Flotr</h1></a>
+  </div>
+  <h1 id="browse-tags-title" class="header-center">Browse Tags</h1>
+</header>
 
-<a href = "/"> Home</a>
-
+<div id="grid">
+  <% @tags.each do |tag| %>
+    <div class="grid-image">
+      <%= image_tag tag.images.first.image.url, :class => "grid-image" %>
+      <%= link_to tag.name, tag_pictures_path(tag: tag.name), :class => "grid-title" %>
+    </div>
+  <% end %>
+</div>

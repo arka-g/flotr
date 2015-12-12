@@ -1,3 +1,631 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  background-color: #1b1c1d;
+  margin: 0;
+}
+
+a { text-decoration: none; color: white; }
+a:visited { color: white; }
+
+#controls {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+}
+
+#bg {
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg-img {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.invisible {
+  display: none;
+}
+
+/* WELCOME SCREEN START ------------------------------ */
+.blur {
+  -webkit-filter: blur(3px) brightness(50%);
+  filter: blur(3px) brightness(50%);
+}
+
+#welcome {
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.main-title {
+  font-family: "Lobster";
+  font-size: 3.5em;
+  font-weight: lighter;
+  margin: 1.5em 0 0 0;
+}
+
+.main-subtitle {
+  margin-top: 0;
+  padding-top: 0;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.main-text {
+    font-family: "Helvetica Neue";
+    font-weight: lighter;
+}
+
+#welcome-info {
+  margin: 10px 0;
+}
+
+.group {
+  margin: 0;
+  padding-top: 5px;
+}
+
+#keyboard {
+  width: 50%;
+  max-width: 568px;
+}
+
+/* WELCOME SCREEN END -------------------------------- */
+
+/* CIRCULAR BUTTONS START ---------------------------- */
+.circle-icon {
+  text-align: center;
+  display: inline-block;
+  font-size: 1.25em;
+  margin: 10px 5px;
+  padding-top: .3em;
+  width: 1.75em;
+  height: 1.45em;
+  border: 2px solid white;
+  border-radius: 100%;
+  opacity: 0.2;
+}
+.circle-icon + span {
+  text-align: center;
+  font-size: 0.25em;
+  display: block;
+  opacity: 0;
+}
+
+.circle-icon:hover {
+  opacity: 1 !important;
+}
+.circle-icon:hover + span {
+  opacity: 1 !important;
+}
+
+.chev-up {
+  padding-top: .25em;
+  height: 1.5em;
+}
+.chev-right {
+  padding-top: 0.35em;
+  height: 1.4em;
+  padding-left: 0.25em;
+  width: 1.5em;
+}
+.chev-down {
+  padding-top: .25em;
+  height: 1.5em;
+}
+.chev-left {
+  padding-top: 0.35em;
+  height: 1.4em;
+  padding-right: 0.25em;
+  width: 1.5em;
+}
+
+#controls-tl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: flex;
+}
+#controls-tr {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: flex;
+}
+#controls-br {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: flex;
+}
+#controls-bl {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+#controls-tl,
+#controls-tr,
+#controls-br,
+#controls-bl {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#up-btn {
+  position: fixed;
+  top: 0;
+  left: 48.5%;
+}
+#right-btn {
+  position: fixed;
+  right: 0;
+  top: 48.5%;
+}
+#left-btn {
+  position: fixed;
+  top: 48.5%;
+  left: 0;
+}
+
+#left-btn,
+#right-btn  {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#pic-info {
+  padding: 10px;
+  opacity: 0.2;
+}
+
+#pic-info:hover {
+  opacity: 1 !important;
+}
+
+#info-title,
+#info-tag {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue";
+}
+
+#info-title {
+  font-weight: normal;
+  font-size: 1.125em;
+}
+#info-tag {
+  font-weight: lighter;
+  font-size: 0.9em;
+}
+
+#more {
+  position: fixed;
+  bottom: 0;
+  left: 48.5%;
+}
+
+.bottom-button .tooltip {
+  text-align: center;
+  font-size: 0.25em;
+  display: block;
+  opacity: 0;
+}
+
+#tooltip-comment {
+  margin-left: -0.4em;
+}
+
+.bottom-button:hover,
+.bottom-button:hover span {
+  opacity: 1 !important;
+}
+
+@-moz-document url-prefix() {
+  .circle-icon + span,
+  .bottom-button .tooltip {
+    font-size: 0.5em;
+  }
+}
+
+/* CIRCULAR BUTTONS END ------------------------------ */
+
+/* MAIN MENU START ----------------------------------- */
+#menu-close-btn {
+  font-family: "Helvetica Neue";
+  font-size: 1em;
+  font-weight: lighter;
+  float: right;
+  padding: 5px 10px;
+}
+
+#menu h1, #menu h2 {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+#menu h1,
+.site-title {
+  font-family: 'Lobster';
+  font-weight: lighter;
+  font-size: 3em;
+  text-align: center;
+  padding: 25px;
+}
+
+#menu h2 {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+}
+
+#menu h2:hover {
+  background-color: rgba(43, 43, 43, 0.99);
+}
+
+#menu {
+  z-index: 101;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(27,28,29,0.99);
+  color: white;
+  position: fixed;
+  left: -100%;
+  transition: left 300ms;
+}
+
+#menu.activated {
+  position: absolute;
+  left: 0;
+}
+/* MAIN MENU END ------------------------------------- */
+
+/* LOG IN START 0------------------------------------- */
+.new_user {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.edit_user {
+  text-align: center;
+  margin-bottom: 50px;
+}
+#login-1, #signup-1 {
+  margin-left: -372px;
+}
+#login-2, #signup-2, #signup-3 {
+  margin-left: -376px;
+}
+#login-1 input,
+#login-2 input,
+#signup-1 input,
+#signup-2 input,
+#signup-3 input, {
+  height: 30px;
+}
+#login-1 input,
+#signup-1 input {
+  border: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid #cecece;
+  padding-left: 40px;
+  width: 360px;
+}
+#login-1 span,
+#signup-1 span {
+  margin-left: -393px;
+}
+#login-2 input,
+#signup-2 input,
+#signup-3 input, {
+  border: 0;
+  border-bottom: 1px solid #cecece;
+  padding-left: 40px;
+  width: 360px;
+}
+#login-2 span,
+#signup-2 span,
+#signup-3 span {
+  margin-left: -391px;
+}
+#login-3 input,
+#signup-4 input {
+  border: 0;
+  padding: 0;
+  width: 402px;
+  height: 33px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background-color: forestgreen;
+}
+#login-4 {
+  margin: 10px;
+  color: white;
+}
+
+h3.main-text {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+h3.main-text a {
+  font-weight: normal;
+}
+h3.main-text a:hover {
+  text-decoration: underline;
+}
+
+.form-heading {
+  text-align: center;
+  color: white;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+
+#cancel-group {
+  text-align: center;
+  color: white;
+}
+#cancel-group p {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+}
+#cancel-group input {
+  width: 400px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background-color: crimson;
+}
+/* LOG IN END ---------------------------------------- */
+
+/* PROFILE START ------------------------------------- */
+#grid {
+  padding-top: 120px;
+}
+.grid-image {
+  margin: 0;
+  padding: 0;
+  object-position: center;
+  width: 33vw;
+  height: 24.75vw;
+  display: inline-block;
+}
+.grid-title {
+  float: left;
+  margin-top: -30px;
+  margin-left: 5px;
+  z-index: 3;
+  position: absolute;
+  text-transform: capitalize;
+  background-color: black;
+  padding: 3px 5px;
+}
+header {
+  position: fixed;
+  z-index: 10;
+  background-color: #1b1c1d;
+  color: white;
+  height: 120px;
+  width: 100vw;
+}
+#header-logo {
+  width: 150px;
+  padding-left: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.header-left {
+  font-family: "Lobster";
+  font-size: 3em;
+  font-weight: normal;
+}
+.header-center {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: 1.75em;
+}
+/* PROFILE END --------------------------------------- */
+
+/* UPLOAD IMAGE START --------------------------------- */
+.upload-header {
+  border-bottom: 1px solid #cecece;
+}
+.new_image {
+  padding-top: 170px;
+  text-align: center;
+}
+#login-2.upload-2 {
+  margin-left: -369px;
+}
+
+#image-selector {
+  margin: 50px;
+  text-align: center;
+}
+#image-selector input {
+  color: white;
+}
+/* UPLOAD IMAGE END ----------------------------------- */
+
+/* SEARCH START ----------------------------------- */
+header form {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+#search {
+  margin: 0;
+  padding: 5px 15px;
+  border: 0;
+  width: 400px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  color: black;
+}
+.search-btn {
+  margin: 0;
+  border: 0;
+  background-color: forestgreen;
+  padding: 5px 15px;
+  border-radius: 0 5px 5px 0;
+}
+/* SEARCH END ----------------------------------- */
+
+/* COMMENTS/BUY START --------------------------- */
+#right-sidebar {
+  z-index: 101;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(27, 28, 29, 0.99);
+  color: white;
+  position: fixed;
+  right: -100%;
+  transition: right 300ms;
+}
+#right-sidebar.activated {
+  position: absolute;
+  right: 0;
+}
+
+#general-pic-info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #cecece;
+}
+
+#right-sidebar h1 {
+  padding: 5px 20px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+#right-sidebar h2 {
+  margin: 0;
+  padding: 0 20px;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: 1em;
+}
+
+.comment {
+  border-bottom: 1px solid #cecece;
+}
+
+#comments h3 {
+  padding: 5px 20px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+#comments h4 {
+  margin: 0;
+  padding: 0 20px;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  font-size: .85em;
+  margin-bottom: 20px;
+}
+
+.delete-btn {
+  float: right;
+  padding-right: 10px;
+}
+
+#comments form,
+#buy form {
+  padding: 20px;
+}
+
+#comments textarea {
+  width: 200px;
+  height: 75px;
+  border: 0;
+  border-radius: 4px;
+  padding: 5px;
+  color: black;
+}
+
+.comments-submit {
+  float: right;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 5px;
+  background-color: forestgreen;
+}
+
+#cc-info {
+  text-align: center;
+}
+
+#cc-info h3 {
+  float: left;
+}
+
+#card_num {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 0;
+  border-radius: 4px;
+  padding: 0 5px;
+  color: black;
+}
+
+#buy-now {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 5px;
+  background-color: forestgreen;
+  width: 200px;
+  height: 30px;
+}
+
+#package-select h4 {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+/* COMMENTS/BUY END ----------------------------- */
+
+#login-3 input:hover,
+#signup-4 input:hover,
+#buy-now:hover,
+.search-btn:hover,
+.comments-submit:hover {
+  -webkit-filter: brightness(90%);
+  filter: brightness(90%);
+}
