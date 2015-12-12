@@ -1,0 +1,16 @@
+Possible Search tags: <%= Tag.all.map{|tag| tag.name} %>
+
+<%= form_tag search_path, method: 'get' do %>
+  <p><%= text_field_tag :search, params[:search] %></p>
+  <%= submit_tag :search, name: nil %>
+<% end %>
+
+<% if @images.present? %>
+  <% @images.each do |img| %>
+    <%= link_to img do %>
+      <%= image_tag img.image.url(:large) %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>There are no images containing the tag <%= params[:search] %>. Try a different search!</p>
+<% end %>

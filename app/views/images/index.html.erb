@@ -7,8 +7,12 @@
     Tag: <%= tag.name %>
   <% end %>
 <% end %>
+
 <br>
 <%= link_to 'Browse Tags', browse_path %>
+<br>
+<%= link_to 'Search', search_path %>
+
 <%= javascript_include_tag "arrow_nav" %>
 <%= javascript_tag do %>
   setPageLimit(<%= @tags.total_pages %>, "<%= request.path %>");
