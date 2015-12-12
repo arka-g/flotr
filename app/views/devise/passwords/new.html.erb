@@ -1,15 +1,15 @@
-<h2>Forgot your password?</h2>
+<a href="/"><h1 class="site-title">Flotr</h1></a>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div id="signup-1" class="field">
+    <%= f.email_field :email, autofocus: true, :placeholder => "Email address" %>
+    <span class="flotr-envelope"></span>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div id="signup-4" class="actions">
+    <%= f.submit "Send password reset instructions" %>
   </div>
 <% end %>
 

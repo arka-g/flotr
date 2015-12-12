@@ -1,27 +1,24 @@
-<h2>Sign up</h2>
+<a href="/"><h1 class="site-title">Flotr</h1></a>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div id="signup-1" class="field">
+    <%= f.email_field :email, autofocus: true, :placeholder => "Email address" %>
+    <span class="flotr-envelope"></span>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div id="signup-2" class="field">
+    <%= f.password_field :password, autocomplete: "off", :placeholder => "Password, minimum 8 characters" %>
+    <span class="flotr-lock"></span>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div id="signup-3" class="field">
+    <%= f.password_field :password, autocomplete: "off", :placeholder => "Re-enter password" %>
+    <span class="flotr-lock"></span>
   </div>
 
-  <div class="actions">
+  <div id="signup-4" class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
