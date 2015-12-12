@@ -307,6 +307,10 @@ a:visited { color: white; }
   text-align: center;
   margin-bottom: 25px;
 }
+.edit_user {
+  text-align: center;
+  margin-bottom: 50px;
+}
 #login-1, #signup-1 {
   margin-left: -372px;
 }
@@ -374,5 +378,28 @@ h3.main-text a {
 }
 h3.main-text a:hover {
   text-decoration: underline;
+}
+
+.form-heading {
+  text-align: center;
+  color: white;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+
+#cancel-group {
+  text-align: center;
+  color: white;
+}
+#cancel-group p {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+}
+#cancel-group input {
+  width: 400px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background-color: crimson;
 }
 /* LOG IN END ---------------------------------------- */
