@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
   end
 
   def gotoImages
-    redirect_to images_path
+    redirect_to images_path(page: 1)
   end
 
   def tags

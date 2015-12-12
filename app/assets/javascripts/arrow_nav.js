@@ -2,7 +2,9 @@ var total_num_pages;
 var value;
 var cyclePage;
 var partial_url;
+var p_path;
 
+$(".pagination").hide();
 $(document).bind('keyup', function(e){
   cyclePage = !(window.location.href.indexOf("/images/") >= 0);
   if(e.which == 39 && cyclePage){
@@ -15,35 +17,32 @@ $(document).bind('keyup', function(e){
 
 function setPageLimit(size, path){
   total_num_pages = size;
-}
-
-function gotoImages(){
-  window.location.href = "/images";
+  p_path = path;
 }
 
 function setValue(){
-  value = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+  value = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
 }
 
 function nextPage(){
   setValue();
-  if(value.indexOf('images?page=') >= 0){
+  if(parseInt(value) >= 1){
     value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
   }
   else{
     value = 2;
   }
-  if(value <= total_num_pages && window.location.href.indexOf('/images') >= 0){
-    location.href = "?page="+value;
+  if(value <= total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
+    location.href = p_path + "?page=" + value;
   }
 }
 
 function prevPage(){
   setValue();
-  if(value.indexOf('images?page=') >= 0){
+  if(parseInt(value) >= 1){
     value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
   }
-  if(value > 0 && (window.location.href.indexOf('/images') >= 0)){
-    location.href = "?page="+value;
+  if(value > 0 && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
+    location.href = p_path+"?page="+value;
   }
 }
