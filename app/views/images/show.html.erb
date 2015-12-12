@@ -20,7 +20,7 @@
   <%= render partial: 'buy' %>
 <% end %>
 
-<% if current_user.id == @image.user_id %>
+<% if user_signed_in? && (current_user.id == @image.user_id) %>
   <%= link_to 'Edit', edit_image_path(@image) %> <br>
 <% end %>
 
