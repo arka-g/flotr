@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :find_image, only: [:show, :edit, :update, :destroy, :like]
-  before_action :authenticate_user!, except: [:index, :show, :browse_tags, :gotoImages, :tag_pictures, :tags]
+  before_action :authenticate_user!, except: [:index, :show, :browse_tags, :gotoImages, :tag_pictures, :tags, :search]
 
   def index
     @tags = Tag.all.paginate(:page => params[:page], :per_page => 1)
