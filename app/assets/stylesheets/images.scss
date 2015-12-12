@@ -267,7 +267,8 @@ a:visited { color: white; }
   border-bottom: 1px solid #333;
 }
 
-#menu h1 {
+#menu h1,
+.site-title {
   font-family: 'Lobster';
   font-weight: lighter;
   font-size: 3em;
@@ -300,3 +301,68 @@ a:visited { color: white; }
   left: 0;
 }
 /* MAIN MENU END ------------------------------------- */
+
+/* LOG IN START 0------------------------------------- */
+.new_user {
+  text-align: center;
+  margin-bottom: 25px;
+}
+#login-1 {
+  margin-left: -372px;
+}
+#login-2 {
+  margin-left: -376px;
+}
+#login-1 input,
+#login-2 input {
+  height: 30px;
+}
+#login-1 input {
+  border: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid #cecece;
+  padding-left: 40px;
+  width: 360px;
+}
+#login-1 span {
+  margin-left: -393px;
+}
+#login-2 input {
+  border: 0;
+  border-bottom: 1px solid #cecece;
+  padding-left: 40px;
+  width: 360px;
+}
+#login-2 span {
+  margin-left: -391px;
+}
+#login-3 input {
+  border: 0;
+  padding: 0;
+  width: 402px;
+  height: 33px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background-color: forestgreen;
+}
+#login-4 {
+  margin: 10px;
+  color: white;
+}
+
+h3.main-text {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+h3.main-text a {
+  font-weight: normal;
+}
+h3.main-text a:hover {
+  text-decoration: underline;
+}
+/* LOG IN END ---------------------------------------- */

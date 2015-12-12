@@ -1,17 +1,17 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <h3 class="main-text">Already have an account? Log in <a href="<%= new_session_path(resource_name) %>">here.</a></h3>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <h3 class="main-text">Don't have an account? Sign up <a href="<%= new_registration_path(resource_name) %>">here.</a></h3>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <h3 class="main-text">Forgot your password? Try <a href="<%= new_password_path(resource_name) %>">this.</a></h3>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <h3 class="main-text">Didn't receive confirmation instructions? Try <a href="<%= new_confirmation_path(resource_name) %>">this.</a></h3>
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
