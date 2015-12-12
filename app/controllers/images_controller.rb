@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
   end
 
   def tags
-    @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 5)
+    @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 1)
   end
 
   def browse_tags

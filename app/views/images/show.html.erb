@@ -15,10 +15,6 @@
   Upvote
   <%= @image.get_upvotes.size %> <br>
 <% end %>
-<%= link_to dislike_image_path(@image), method: :get do %>
-  Downvote
-  <%= @image.get_downvotes.size %> <br>
-<% end %>
 
 
 <%= link_to 'Edit', edit_image_path(@image) %> <br>
