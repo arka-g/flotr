@@ -27,23 +27,23 @@ function setValue(){
 
 function nextPage(){
   setValue();
-    if(value.indexOf('images?page=') >= 0){
-      value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
-    }
-    else{
-      value = 2;
-    }
+  if(value.indexOf('images?page=') >= 0){
+    value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
+  }
+  else{
+    value = 2;
+  }
   if(value <= total_num_pages && (window.location.href.indexOf('/images') >= 0)){
-     location.href = "images?page="+value;
-    }
+    location.href = "images?page="+value;
+  }
 }
 
 function prevPage(){
   setValue();
   if(value.indexOf('images?page=') >= 0){
-      value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
+    value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
   }
   if(value > 0 && (window.location.href.indexOf('/images') >= 0)){
-     location.href = "images?page="+value;
-    }
+    location.href = "images?page="+value;
+  }
 }
