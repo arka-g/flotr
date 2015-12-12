@@ -7,9 +7,10 @@
 
 <div id="grid">
   <% @images.each do |img| %>
-    <%= link_to img do %>
+    <div class="grid-image">
       <%= image_tag img.image.url, :class => "grid-image" %>
       <!--- <p class="grid-title"><%= img.title %></p> -->
-    <% end %>
+      <%= link_to img.title, img, :class => "grid-title" %>
+    </div>
   <% end %>
 </div>

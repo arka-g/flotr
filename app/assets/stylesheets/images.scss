@@ -414,9 +414,21 @@ h3.main-text a:hover {
   object-position: center;
   width: 33vw;
   height: 24.75vw;
+  display: inline-block;
+}
+.grid-title {
+  float: left;
+  margin-top: -30px;
+  margin-left: 5px;
+  z-index: 3;
+  position: absolute;
+  text-transform: capitalize;
+  background-color: black;
+  padding: 3px 5px;
 }
 header {
   position: fixed;
+  z-index: 10;
   background-color: #1b1c1d;
   color: white;
   height: 120px;
@@ -433,7 +445,7 @@ header {
   font-size: 3em;
   font-weight: normal;
 }
-#user-email {
+.header-center {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
