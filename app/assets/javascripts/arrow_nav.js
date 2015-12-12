@@ -1,7 +1,7 @@
 var total_num_pages;
 var value;
 var cyclePage;
-$(".pagination").hide();
+var partial_url;
 
 $(document).bind('keyup', function(e){
   cyclePage = !(window.location.href.indexOf("/images/") >= 0);
@@ -33,8 +33,8 @@ function nextPage(){
   else{
     value = 2;
   }
-  if(value <= total_num_pages && (window.location.href.indexOf('/images') >= 0)){
-    location.href = "images?page="+value;
+  if(value <= total_num_pages && window.location.href.indexOf('/images') >= 0){
+    location.href = "?page="+value;
   }
 }
 
@@ -44,6 +44,6 @@ function prevPage(){
     value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
   }
   if(value > 0 && (window.location.href.indexOf('/images') >= 0)){
-    location.href = "images?page="+value;
+    location.href = "?page="+value;
   }
 }
