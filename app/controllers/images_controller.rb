@@ -18,6 +18,19 @@ class ImagesController < ApplicationController
     @tags = Tag.all
   end
 
+  def search
+    if params[:search]
+      if Tag.search(params[:search]).exists?
+        tag = Tag.search(params[:search]).first.name
+        @images = Image.tagged(tag)
+      else
+        @images = []
+      end
+    else
+      @images = Image.limit(5).order("RANDOM()")
+    end
+  end
+
   def tag_pictures
     @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 10)
   end
