@@ -454,3 +454,24 @@ header {
   font-size: 1.75em;
 }
 /* PROFILE END --------------------------------------- */
+
+/* UPLOAD IMAGE START --------------------------------- */
+.upload-header {
+  border-bottom: 1px solid #cecece;
+}
+.new_image {
+  padding-top: 170px;
+  text-align: center;
+}
+#login-2.upload-2 {
+  margin-left: -369px;
+}
+
+#image-selector {
+  margin: 50px;
+  text-align: center;
+}
+#image-selector input {
+  color: white;
+}
+/* UPLOAD IMAGE END ----------------------------------- */
