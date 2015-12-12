@@ -3,25 +3,16 @@
 <head>
   <title>Flotr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<p class="notice invisible"><%= notice %></p>
 
 <%= yield %>
-
-<% if user_signed_in? %>
-  <li><%= link_to 'New Image', new_image_path %></li>
-  <li><%= link_to 'My profile', profile_path %></li>
-  <li><%= link_to 'Settings', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-<% else %>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-<% end %>
 
 </body>
 </html>

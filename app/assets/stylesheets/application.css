@@ -10,6 +10,124 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'Flotr';
+  src:url('Flotr.eot?1c5o1m');
+  src:url('Flotr.eot?1c5o1m#iefix') format('embedded-opentype'),
+    url('Flotr.ttf?1c5o1m') format('truetype'),
+    url('Flotr.woff?1c5o1m') format('woff'),
+    url('Flotr.svg?1c5o1m#Flotr') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="flotr-"], [class*=" flotr-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Flotr' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flotr-type:before {
+  content: "\e901";
+}
+.flotr-thumbs-down:before {
+  content: "\e91c";
+}
+.flotr-thumbs-up:before {
+  content: "\e91d";
+}
+.flotr-thumbs-o-down:before {
+  content: "\e904";
+}
+.flotr-thumbs-o-up:before {
+  content: "\e907";
+}
+.flotr-pencil:before {
+  content: "\e90a";
+}
+.flotr-tags:before {
+  content: "\e917";
+}
+.flotr-facebook-square:before {
+  content: "\e918";
+}
+.flotr-envelope:before {
+  content: "\e919";
+}
+.flotr-lock:before {
+  content: "\e91a";
+}
+.flotr-user:before {
+  content: "\e91b";
+}
+.flotr-heart-o:before {
+  content: "\e915";
+}
+.flotr-heart:before {
+  content: "\e916";
+}
+.flotr-long-arrow-down:before {
+  content: "\e900";
+}
+.flotr-chevron-down:before {
+  content: "\e902";
+}
+.flotr-long-arrow-up:before {
+  content: "\e903";
+}
+.flotr-chevron-up:before {
+  content: "\e905";
+}
+.flotr-long-arrow-left:before {
+  content: "\e906";
+}
+.flotr-chevron-left:before {
+  content: "\e908";
+}
+.flotr-long-arrow-right:before {
+  content: "\e909";
+}
+.flotr-chevron-right:before {
+  content: "\e90b";
+}
+.flotr-cloud-upload:before {
+  content: "\e90c";
+}
+.flotr-search:before {
+  content: "\e90d";
+}
+.flotr-question:before {
+  content: "\e90e";
+}
+.flotr-info:before {
+  content: "\e90f";
+}
+.flotr-bars:before {
+  content: "\e910";
+}
+.flotr-dollar:before {
+  content: "\e911";
+}
+.flotr-comment-o:before {
+  content: "\e912";
+}
+.flotr-bell-o:before {
+  content: "\e913";
+}
+.flotr-bell:before {
+  content: "\e914";
+}

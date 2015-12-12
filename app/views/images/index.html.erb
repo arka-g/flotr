@@ -1,17 +1,167 @@
-<%= will_paginate @tags %>
-
-<% @tags.each do |tag| %>
-  <%= link_to tag.images.first do %>
-    <%= image_tag tag.images.first.image.url(:large) %>
-    <%= link_to 'More like this', tag_path(tag: tag.name, page: 1) %>
-    Tag: <%= tag.name %>
+<div id="menu">
+  <span id="menu-close-btn" onclick="toggleMenu()">X</span>
+  <h1>Flotr</h1>
+  <% if user_signed_in? %>
+    <h2><%= link_to 'Profile', profile_path %></h2>
+    <h2><%= link_to 'Settings', edit_user_registration_path %></h2>
+    <h2><%= link_to 'Browse Tags', browse_path %></h2>
+    <h2><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></h2>
+  <% else %>
+    <h2><%= link_to 'Log in', new_user_session_path %></h2>
+    <h2><%= link_to 'Sign up', new_user_registration_path %></h2>
+    <h2><%= link_to 'Browse Tags', browse_path %></h2>
   <% end %>
-<% end %>
+</div>
 
-<br>
-<%= link_to 'Browse Tags', browse_path %>
-<br>
-<%= link_to 'Search', search_path %>
+<div id="controls">
+  <div class="invisible">
+    <%= will_paginate @tags %>
+  </div>
+  <div id="controls-tl"> <!-- top-left -->
+    <div>
+      <span class="flotr-bars circle-icon" onclick="toggleMenu()"></span>
+      <span class="tooltip" id="tooltip-menu">MENU</span>
+    </div>
+    <div id="pic-info">
+      <h3 id="info-title"></h3>
+      <p id="info-tag"></p>
+    </div>
+  </div>
+
+  <!-- <span id="up-btn" class="flotr-chevron-up circle-icon chev-up"></span> -->
+
+  <div id="controls-tr"> <!-- top-right -->
+    <div>
+      <a href="<%=  new_image_path %>">
+        <span class="flotr-cloud-upload circle-icon"></span>
+        <span class="tooltip" id="tooltip-upload">UPLOAD</span>
+      </a>
+    </div>
+<!--     <span class="flotr-bell-o circle-icon">
+      <span class="tooltip" id="tooltip-alerts">ALERTS</span>
+    </span> -->
+    <div>
+      <span class="flotr-info circle-icon" onclick="info()"></span>
+      <span class="tooltip" id="tooltip-info">INFO</span>
+    </div>
+  </div>
+
+  <span id="right-btn" class="flotr-chevron-right circle-icon chev-right" onclick="nextPage()"></span>
+
+  <div id="controls-br"> <!-- bottom-right -->
+    <div class="bottom-button">
+      <span class="tooltip" id="tooltip-like">LIKE</span>
+      <span id="like-btn" class="flotr-heart-o circle-icon" onclick="toggleLike()"></span>
+    </div>
+    <div class="bottom-button">
+      <a href="" id="comment-btn">
+        <span class="tooltip" id="tooltip-comment">COMMENT</span>
+        <span class="flotr-comment-o circle-icon"></span>
+      </a>
+    </div>
+    <div class="bottom-button">
+      <a href="" id="buy-btn">
+        <span class="tooltip" id="tooltip-buy">BUY</span>
+        <span class="flotr-dollar circle-icon"></span>
+      </a>
+    </div>
+  </div>
+
+  <div id="more" class="bottom-button">
+    <a href="" id="more-btn">
+      <span class="tooltip" id="tooltip-more">MORE<br>OF THE<br>SAME</span>
+      <span id="down-btn" class="flotr-chevron-down circle-icon chev-down"></span>
+    </a>
+  </div>
+
+  <div id="controls-bl" class="bottom-button"> <!-- bottom-left -->
+    <a href="<%= search_path %>" id="search-btn"><span class="tooltip" id="tooltip-search">SEARCH</span>
+    <span class="flotr-search circle-icon"></span></a>
+  </div>
+
+  <span id="left-btn" class="flotr-chevron-left circle-icon chev-left" onclick="prevPage()"></span>
+</div>
+
+<div id="welcome" class="invisible">
+  <h1 class="main-title">Welcome to Flotr!</h1>
+  <h2 class="main-subtitle">Your ultimate source of inspiration.</h2>
+  <h3 class="main-text">Navigate with your keyboard:</h3>
+  <%=image_tag("keyboard.png", id: "keyboard")%>
+  <div id="welcome-info">
+    <h3 class="main-text group">Click anywhere to close this.</h3>
+    <h3 class="main-text group">Click  <span class="flotr-info"></span>  to see this again.</h3>
+  </div>
+</div>
+
+<div id="bg">
+  <!--  link_to tag.images.first do  -->
+  <% @tags.each do |tag| %>
+    <%= image_tag( tag.images.first.image.url, :class => "bg-img" ) %>
+    <%= link_to 'More like this', tag_path(tag: tag.name, page: 1), :class => "invisible", :id => "more-rb" %>
+    <%= link_to 'Direct link', tag.images.first, :class => "invisible", :id => "link-rb" %>
+    <%= content_tag("p", tag.name, :class => "invisible", :id => "tag-rb") %>
+    <%= content_tag("p", tag.images.first.title, :class => "invisible", :id => "title-rb") %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#more-btn").attr('href', $("#more-rb").attr('href'));
+    $("#comment-btn").attr('href', $("#link-rb").attr('href'));
+    $("#buy-btn").attr('href', $("#link-rb").attr('href'));
+    $("#info-title").text("Title: " + $("#title-rb").text());
+    $("#info-tag").text("Tag: " + $("#tag-rb").text());
+    if (!sessionStorage.seenInfo) {
+      info();
+      sessionStorage.seenInfo = "true";
+    }
+  });
+  var toggleMenu = function () {
+    $('#menu').toggleClass("activated");
+  };
+  var toggleLike = function () {
+    if ($("#like-btn").hasClass("flotr-heart-o")) {
+        $('#like-btn').removeClass("flotr-heart-o");
+        $('#like-btn').addClass("flotr-heart");
+    } else {
+        $('#like-btn').removeClass("flotr-heart");
+        $('#like-btn').addClass("flotr-heart-o");
+    }
+  };
+  var info = function() {
+    if ($('#bg').hasClass('blur')) {
+      hideInfo();
+    } else {
+      showInfo();
+    }
+    $('#welcome').toggleClass('invisible');
+  };
+  var hideInfo = function() {
+    $('#bg').removeClass('blur');
+    $('.circle-icon').css('opacity','0.2');
+    $('#pic-info').css('opacity','0.2');
+    $('.tooltip').css('opacity','0');
+  };
+  var showInfo = function() {
+    $('#bg').addClass('blur');
+    $('.circle-icon').css('opacity','1');
+    $('#pic-info').css('opacity','1');
+    $('.tooltip').css('opacity','1');
+  }
+  $('#welcome').click(function() {
+    info();
+  });
+  $(document).bind('keyup', function(e) {
+    var cyclePage = !(window.location.href.indexOf("/images/") >= 0);
+      if((e.which==73) && cyclePage) {
+        info();
+      } else if ((e.which==76) && cyclePage) {
+        toggleLike();
+      } else if ((e.which==67) && cyclePage) {
+        location.href = $("#comment-btn").attr('href');
+      }
+  });
+</script>
 
 <%= javascript_include_tag "arrow_nav" %>
 <%= javascript_tag do %>
