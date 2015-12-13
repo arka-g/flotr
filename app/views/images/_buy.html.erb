@@ -17,10 +17,10 @@
 
 <%= javascript_tag do %>
   $('#conForm').submit(function () {
-    if($('#card_num').val() == 0){
+    if ($('#card_num').val() == 0) {
       return false;
-    }else{
-      alert("Item has been bought! Your reciept has been emailed to you.");
+    } else {
+      alert("Item has been bought! Your receipt has been emailed to you.");
       return false;
     }
   });
