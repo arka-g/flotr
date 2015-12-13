@@ -4,63 +4,9 @@ var cyclePage;
 var partial_url;
 var p_path;
 
-$(document).ready(function() {
-  debugger;
-    $("#more-btn").attr('href', $("#more-rb").attr('href'));
-    $("#comment-btn").attr('href', $("#link-rb").attr('href') + "#comment");
-    $("#buy-btn").attr('href', $("#link-rb").attr('href') + "#buy");
-    $("#info-title").text("Title: " + $("#title-rb").text());
-    $("#info-tag").text("Tag: " + $("#tag-rb").text());
-    // session storage came to the rescue for showing that "welcome" thing on first visit
-    if (!sessionStorage.seenInfo) {
-      info();
-      sessionStorage.seenInfo = "true";
-    }
-  });
-
-  // bunch 'o toggle functions for menu, like button, etc
-  var toggleMenu = function () {
-    $('#menu').toggleClass("activated");
-  };
-  var toggleLike = function () {
-    if ($("#like-btn").hasClass("flotr-heart-o")) {
-        $('#like-btn').removeClass("flotr-heart-o");
-        $('#like-btn').addClass("flotr-heart");
-    } else {
-        $('#like-btn').removeClass("flotr-heart");
-        $('#like-btn').addClass("flotr-heart-o");
-    }
-  };
-  // this guy toggles the welcome screen
-  var info = function() {
-    if ($('#bg').hasClass('blur')) {
-      hideInfo();
-    } else {
-      showInfo();
-    }
-    $('#welcome').toggleClass('invisible');
-  };
-  var hideInfo = function() {
-    $('#bg').removeClass('blur');
-    $('.circle-icon').css('opacity','0.2');
-    $('#pic-info').css('opacity','0.2');
-    $('.tooltip').css('opacity','0');
-  };
-  var showInfo = function() {
-    $('#bg').addClass('blur');
-    $('.circle-icon').css('opacity','1');
-    $('#pic-info').css('opacity','1');
-    $('.tooltip').css('opacity','1');
-  }
-  // close the welcome screen on any click
-  $('#welcome').click(function() {
-    info();
-  });
-
-
 $(".pagination").hide();
 $(document).bind('keyup', function(e){
-  cyclePage = !(window.location.href.indexOf("/images/") >= 0);
+  cyclePage = ((window.location.href.indexOf("/images?page") >= 0) || (window.location.href.indexOf("/tags/") >= 0));
   if(e.which == 39 && cyclePage){
     nextPage();
   }
