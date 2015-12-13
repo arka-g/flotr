@@ -1,4 +1,4 @@
-<form>
+<form id="conForm">
   <div id="package-select">
     <h3>Select a package:</h3>
     <input type="radio" name="price" value="$20" checked>  Digital License .......... $20<br>
@@ -15,10 +15,12 @@
   </div>
 </form>
 <%= javascript_tag do %>
-  function checkValues(){
+  $('#conForm').submit(function () {
     if($('#card_num').val() == 0){
+      return false;
     }else{
       alert("Item has been bought! Your reciept has been emailed to you.");
+      return false;
     }
-  }
+  });
 <% end %>
