@@ -6,7 +6,7 @@ var p_path;
 
 $(".pagination").hide();
 $(document).bind('keyup', function(e){
-  cyclePage = !(window.location.href.indexOf("/images/") >= 0);
+  cyclePage = ((window.location.href.indexOf("/images?page") >= 0) || (window.location.href.indexOf("/tags/") >= 0));
   if(e.which == 39 && cyclePage){
     nextPage();
   }

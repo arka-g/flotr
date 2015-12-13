@@ -104,7 +104,6 @@
   <% end %>
 </div>
 
-
 <!-- I know this isn't the best practice, and it needs a few fixes, but it works for now... -->
 <!-- This JS handles most of the keypresses on the main page, and links the buttons to their functions -->
 <script type="text/javascript">
@@ -124,7 +123,6 @@
       sessionStorage.seenInfo = "true";
     }
   });
-
   // bunch 'o toggle functions for menu, like button, etc
   var toggleMenu = function () {
     $('#menu').toggleClass("activated");
@@ -163,13 +161,12 @@
   $('#welcome').click(function() {
     info();
   });
-
   // FIX-ME: this is causing errors when logging in and on
   // other pages. Maybe need to move this to arrow_nav or something?
   // it's getting called on Browse Tags page and Log-in/Sign-up sometimes
   // and causing routing errors
   $(document).bind('keyup', function(e) {
-    var cyclePage = !(window.location.href.indexOf("/images/") >= 0);
+    var cyclePage = ((window.location.href.indexOf("/images?page") >= 0) || (window.location.href.indexOf("/tags/") >= 0));
       if((e.which==73) && cyclePage) {
         info();
       } else if ((e.which==76) && cyclePage) {
@@ -179,7 +176,6 @@
       }
   });
 </script>
-
 <%= javascript_include_tag "arrow_nav" %>
 <%= javascript_tag do %>
   setPageLimit(<%= @tags.total_pages %>, "<%= request.path %>");

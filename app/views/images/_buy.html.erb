@@ -1,4 +1,4 @@
-<form>
+<form id="conForm">
   <div id="package-select">
     <h3>Select a package:</h3>
     <input type="radio" name="price" value="$20" checked>  Digital License .......... $20<br>
@@ -11,14 +11,17 @@
   <div id="cc-info">
     <h3>Credit Card Number:</h3>
     <input id ="card_num" type="text" maxlength="16" required placeholder="Must be 16-digits"><br>
-    <input type="submit" onClick="checkValues()" value="Buy Now!" id="buy-now">
+    <input type="submit" onclick="checkValues()" value="Buy Now!" id="buy-now">
   </div>
 </form>
+
 <%= javascript_tag do %>
-  function checkValues(){
-    if($('#card_num').val() == 0){
-    }else{
-      alert("You must enter a valid 16-digit credit card number!");
+  $('#conForm').submit(function () {
+    if ($('#card_num').val() == 0) {
+      return false;
+    } else {
+      alert("Item has been bought! Your receipt has been emailed to you.");
+      return false;
     }
-  }
+  });
 <% end %>
