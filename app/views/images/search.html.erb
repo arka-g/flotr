@@ -3,7 +3,7 @@
     <a href="/"><h1 class="header-left">Flotr</h1></a>
   </div>
   <%= form_tag search_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], :autofocus=>true %>
     <%= button_tag( :class => "search-btn") do %>
       <i class="flotr-search"></i>
     <% end %>
