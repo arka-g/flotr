@@ -9,6 +9,8 @@ Check out the milestone design document [here](https://drive.google.com/file/d/0
 * `bundle install`
 * If you have trouble installing `pg`, try this:
 ```
+* If you do not already have postgres on your computer
+brew install postgres
 sudo su
 env ARCHFLAGS="-arch x86_64" gem install pg
 ```
