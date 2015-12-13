@@ -15,10 +15,12 @@
 <div id="grid">
   <% if @images.present? %>
     <% @images.each do |img| %>
-      <div class="grid-image">
-          <%= image_tag img.image.url, :class => "grid-image" %>
-          <%= link_to img.title, img, :class => "grid-title" %>
-      </div>
+      <%= link_to tag_pictures_path(tag: img.tags.first.name) do %>
+        <div class="grid-image">
+            <%= image_tag img.image.url, :class => "grid-image" %>
+            <%= link_to img.title, img, :class => "grid-title" %>
+        </div>
+      <% end %>
     <% end %>
   <% else %>
     <p>There are no images containing the tag <%= params[:search] %>. Try a different search!</p>

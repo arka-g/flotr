@@ -8,8 +8,9 @@
 <div id="grid">
   <% @images.each do |img| %>
     <div class="grid-image">
-      <%= image_tag img.image.url, :class => "grid-image" %>
-      <!--- <p class="grid-title"><%= img.title %></p> -->
+      <%= link_to img do %>
+        <%= image_tag img.image.url, :class => "grid-image" %>
+      <% end %>
       <%= link_to img.title, img, :class => "grid-title" %>
     </div>
   <% end %>
