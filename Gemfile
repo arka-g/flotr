@@ -33,7 +33,7 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'normalize-rails', '~> 3.0', '>= 3.0.3'
-gem 'aws-sdk', '~> 2.2', '>= 2.2.4'
+gem 'aws-sdk', '< 2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
