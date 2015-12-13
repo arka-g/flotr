@@ -13,6 +13,13 @@ $(document).bind('keyup', function(e){
   if(e.which==37 && cyclePage){
     prevPage();
   }
+  if((e.which==73) && cyclePage) {
+        info();
+      } else if ((e.which==76) && cyclePage) {
+        toggleLike();
+      } else if ((e.which==67) && cyclePage) {
+        location.href = $("#comment-btn").attr('href');
+      }
 });
 
 function setPageLimit(size, path){

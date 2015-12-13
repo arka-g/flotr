@@ -9,6 +9,13 @@ html, body {
 a { text-decoration: none; color: white; }
 a:visited { color: white; }
 
+#error_explanation{
+  color:  white;
+}
+
+#error_explanation ul{
+  list-style: none;
+}
 #controls {
   z-index: 100;
   position: absolute;
@@ -25,7 +32,7 @@ a:visited { color: white; }
 
 .bg-img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 82%;
   bottom: 0;
   left: 0;
   margin: auto;
@@ -409,7 +416,7 @@ h3.main-text a:hover {
   padding-top: 120px;
 }
 #grid p{
-  color:white;
+  color:white
 }
 .grid-image {
   margin: 0;
