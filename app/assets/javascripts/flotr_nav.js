@@ -14,13 +14,10 @@ $(document).ready(function() {
   imgCyclePage = window.location.href.indexOf("/images?page") >= 0;
   tagCyclePage = window.location.href.indexOf("/tags/") >= 0;
   if (imgCyclePage) {
-    $("#more-btn").attr('href', $("#more-rb").attr('href'));
     $("#info-tag").text("Tag: " + $("#tag-rb").text());
   } else if (tagCyclePage) {
-    $("#back-btn").attr('href', $("#back-rb").attr('href'));
+    $("#info-tag").text("Tag: " + window.location.pathname.split("/")[2]);
   }
-  $("#comment-btn").attr('href', $("#link-rb").attr('href') + "#comment");
-  $("#buy-btn").attr('href', $("#link-rb").attr('href') + "#buy");
   $("#info-title").text("Title: " + $("#title-rb").text());
   // session storage came to the rescue for showing that "welcome" thing on first visit
   if (!sessionStorage.seenInfo) {
@@ -43,7 +40,11 @@ $(document).ready(function() {
     } else if ((e.which == 76) && cyclePage) {
       toggleLike();
     } else if ((e.which == 67) && cyclePage) {
-      location.href = $("#comment-btn").attr('href');
+      goToComments();
+    } else if ((e.which == 40) && imgCyclePage) {
+      seeMore();
+    } else if ((e.which == 38) && tagCyclePage) {
+      goBack();
     }
   });
 });
@@ -86,6 +87,33 @@ var showInfo = function() {
 $('#welcome').click(function() {
   info();
 });
+
+var goToComments = function () {
+  sessionStorage.show = "comments";
+  sessionStorage.previousPic = window.location.href;
+  location.href = $("#link-rb").attr('href');
+};
+
+var goToBuy = function () {
+  sessionStorage.show = "buy";
+  sessionStorage.previousPic = window.location.href;
+  location.href = $("#link-rb").attr('href');
+};
+
+var seeMore = function () {
+  sessionStorage.previousPic = window.location.href;
+  location.href = $("#more-rb").attr('href');
+};
+
+var goBack = function () {
+  if (sessionStorage.previousPic) {
+    var tmpUrl = sessionStorage.previousPic;
+    sessionStorage.previousPic = "";
+    location.href = tmpUrl;
+  } else {
+    location.href = window.location.origin;
+  }
+};
 
 $(".pagination").hide();
 

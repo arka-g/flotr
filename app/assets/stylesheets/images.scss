@@ -223,11 +223,11 @@ a:visited { color: white; }
   font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-#info-title {
+#pic-info h3 {
   font-weight: normal;
   font-size: 1.125em;
 }
-#info-tag {
+#pic-info p {
   font-weight: lighter;
   font-size: 0.9em;
 }
@@ -305,6 +305,7 @@ a:visited { color: white; }
   position: fixed;
   left: -100%;
   transition: left 300ms;
+  border-right: 1px solid #333;
 }
 
 #menu.activated {
@@ -522,6 +523,7 @@ header form {
   position: fixed;
   right: -100%;
   transition: right 300ms;
+  border-left: 1px solid #333;
 }
 #right-sidebar.activated {
   position: absolute;
@@ -530,7 +532,7 @@ header form {
 
 #general-pic-info {
   padding-bottom: 20px;
-  border-bottom: 1px solid #cecece;
+  border-bottom: 1px solid #333;
 }
 
 #right-sidebar h1 {
@@ -550,7 +552,7 @@ header form {
 }
 
 .comment {
-  border-bottom: 1px solid #cecece;
+  border-bottom: 1px solid #333;
 }
 
 #comments h3 {

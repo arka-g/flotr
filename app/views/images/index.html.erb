@@ -1,6 +1,6 @@
 <div id="menu"> <!--  Main menu, slides out from left-->
   <span id="menu-close-btn" onclick="toggleMenu()">X</span>
-  <h1>Flotr</h1>
+  <h1><a href="/">Flotr</a></h1>
   <% if user_signed_in? %>
     <h2><%= link_to 'Profile', profile_path %></h2>
     <h2><%= link_to 'Settings', edit_user_registration_path %></h2>
@@ -54,24 +54,20 @@
       <span id="like-btn" class="flotr-heart-o circle-icon" onclick="toggleLike()"></span>
     </div>
     <div class="bottom-button">
-      <a href="" id="comment-btn">
-        <span class="tooltip" id="tooltip-comment">COMMENT</span>
-        <span class="flotr-comment-o circle-icon"></span>
-      </a>
+      <span class="tooltip" id="tooltip-comment">COMMENT</span>
+      <span class="flotr-comment-o circle-icon" onclick="goToComments()"></span>
     </div>
     <div class="bottom-button">
-      <a href="" id="buy-btn">
-        <span class="tooltip" id="tooltip-buy">BUY</span>
-        <span class="flotr-dollar circle-icon"></span>
-      </a>
+      <span class="tooltip" id="tooltip-buy">BUY</span>
+      <span class="flotr-dollar circle-icon" onclick="goToBuy()"></span>
     </div>
   </div>
 
   <div id="more" class="bottom-button">
-    <a href="" id="more-btn">
+    <!-- <a href="" id="more-btn"> -->
       <span class="tooltip" id="tooltip-more">MORE<br>OF THE<br>SAME</span>
-      <span id="down-btn" class="flotr-chevron-down circle-icon chev-down"></span>
-    </a>
+      <span id="down-btn" class="flotr-chevron-down circle-icon chev-down" onclick="seeMore()"></span>
+    <!-- </a> -->
   </div>
 
   <div id="controls-bl" class="bottom-button"> <!-- bottom-left -->
