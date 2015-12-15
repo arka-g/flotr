@@ -47,6 +47,18 @@ $(document).ready(function() {
       goBack();
     }
   });
+
+  // mousemove to show icons
+  var timer;
+  $("#bg").mousemove(function(e) {
+    showIcons();
+    try {
+      clearTimeout(timer);
+    } catch (e) {}
+    timer = setTimeout(function () {
+      hideIcons();
+    }, 600);
+  });
 });
 
 // bunch 'o toggle functions for menu, like button, etc
@@ -82,11 +94,22 @@ var showInfo = function() {
   $('.circle-icon').css('opacity','1');
   $('#pic-info').css('opacity','1');
   $('.tooltip').css('opacity','1');
-}
+};
 // close the welcome screen on any click
 $('#welcome').click(function() {
   info();
 });
+
+// for mousemove and mousestop
+var hideIcons = function() {
+  $('.circle-icon').css('opacity','0.2');
+  $('#pic-info').css('opacity','0.2');
+};
+var showIcons = function() {
+  $('.circle-icon').css('opacity','1');
+  $('#pic-info').css('opacity','1');
+};
+
 
 var goToComments = function () {
   sessionStorage.show = "comments";

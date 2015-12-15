@@ -650,3 +650,14 @@ header form {
       font-size: 0.5em;
     }
 }
+
+.circle-icon,
+.circle-icon + span,
+.bottom-button .tooltip,
+#pic-info {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
