@@ -15,7 +15,7 @@
   </div>
 
   <div id="login-3" class="actions">
-    <%= f.submit "Upload Image" %>
+    <%= f.submit "Upload Image", :disabled => "true" %>
   </div>
 
 
@@ -30,3 +30,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $('input:file').on("change", function() {
+      $('input:submit').prop('disabled', !$(this).val());
+  });
+</script>

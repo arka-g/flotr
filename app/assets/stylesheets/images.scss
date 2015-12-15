@@ -72,13 +72,13 @@ a:visited { color: white; }
 .main-subtitle {
   margin-top: 0;
   padding-top: 0;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-style: italic;
 }
 
 .main-text {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: lighter;
 }
 
@@ -94,6 +94,10 @@ a:visited { color: white; }
 #keyboard {
   width: 50%;
   max-width: 568px;
+}
+
+.welcome-i {
+  padding: 0 4px;
 }
 
 /* WELCOME SCREEN END -------------------------------- */
@@ -216,14 +220,14 @@ a:visited { color: white; }
 #info-tag {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-#info-title {
+#pic-info h3 {
   font-weight: normal;
   font-size: 1.125em;
 }
-#info-tag {
+#pic-info p {
   font-weight: lighter;
   font-size: 0.9em;
 }
@@ -261,7 +265,7 @@ a:visited { color: white; }
 
 /* MAIN MENU START ----------------------------------- */
 #menu-close-btn {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1em;
   font-weight: lighter;
   float: right;
@@ -284,7 +288,7 @@ a:visited { color: white; }
 }
 
 #menu h2 {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
 }
 
@@ -301,6 +305,7 @@ a:visited { color: white; }
   position: fixed;
   left: -100%;
   transition: left 300ms;
+  border-right: 1px solid #333;
 }
 
 #menu.activated {
@@ -390,7 +395,7 @@ h3.main-text a:hover {
 .form-heading {
   text-align: center;
   color: white;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
 }
 
@@ -399,7 +404,7 @@ h3.main-text a:hover {
   color: white;
 }
 #cancel-group p {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
 }
 #cancel-group input {
@@ -443,6 +448,7 @@ header {
   color: white;
   height: 120px;
   width: 100vw;
+  border-bottom: 1px solid #333333;
 }
 #header-logo {
   width: 150px;
@@ -459,16 +465,13 @@ header {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: 1.75em;
 }
 /* PROFILE END --------------------------------------- */
 
 /* UPLOAD IMAGE START --------------------------------- */
-.upload-header {
-  border-bottom: 1px solid #cecece;
-}
 .new_image {
   padding-top: 170px;
   text-align: center;
@@ -484,10 +487,15 @@ header {
 #image-selector input {
   color: white;
 }
+input:disabled {
+  opacity: 0.5;
+  -webkit-filter: brightness(90%);
+}
 /* UPLOAD IMAGE END ----------------------------------- */
 
 /* SEARCH START ----------------------------------- */
 header form {
+  display: -webkit-inline-flex;
   display: inline-flex;
   vertical-align: middle;
 }
@@ -505,7 +513,7 @@ header form {
   margin: 0;
   border: 0;
   background-color: forestgreen;
-  padding: 5px 15px;
+  padding: 4px 15px 1px 15px;
   border-radius: 0 5px 5px 0;
 }
 /* SEARCH END ----------------------------------- */
@@ -520,6 +528,7 @@ header form {
   position: fixed;
   right: -100%;
   transition: right 300ms;
+  border-left: 1px solid #333;
 }
 #right-sidebar.activated {
   position: absolute;
@@ -528,12 +537,12 @@ header form {
 
 #general-pic-info {
   padding-bottom: 20px;
-  border-bottom: 1px solid #cecece;
+  border-bottom: 1px solid #333;
 }
 
 #right-sidebar h1 {
   padding: 5px 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
   font-size: 1.5em;
   margin-bottom: 0;
@@ -542,18 +551,18 @@ header form {
 #right-sidebar h2 {
   margin: 0;
   padding: 0 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: 1em;
 }
 
 .comment {
-  border-bottom: 1px solid #cecece;
+  border-bottom: 1px solid #333;
 }
 
 #comments h3 {
   padding: 5px 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
   font-size: 1em;
   margin-bottom: 0;
@@ -562,7 +571,7 @@ header form {
 #comments h4 {
   margin: 0;
   padding: 0 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: .85em;
   margin-bottom: 20px;
@@ -623,7 +632,7 @@ header form {
 }
 
 #package-select h4 {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   padding-left: 20px;
   margin-top: 5px;
@@ -638,4 +647,22 @@ header form {
 .comments-submit:hover {
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
+}
+
+@media screen and (min-width: 1681px) {
+    .circle-icon + span,
+    .bottom-button .tooltip {
+      font-size: 0.5em;
+    }
+}
+
+.circle-icon,
+.circle-icon + span,
+.bottom-button .tooltip,
+#pic-info {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }

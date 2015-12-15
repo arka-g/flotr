@@ -23,8 +23,8 @@
       <span class="tooltip" id="tooltip-menu">MENU</span>
     </div>
     <div id="pic-info">
-      <h3 id="info-title"></h3>
-      <!-- <p id="info-tag"></p> -->
+      <h3 id="info-tag"></h3>
+      <p id="info-title"></p>
     </div>
   </div>
 
@@ -61,16 +61,12 @@
       <span id="like-btn" class="flotr-heart-o circle-icon" onclick="toggleLike()"></span>
     </div>
     <div class="bottom-button">
-      <a href="" id="comment-btn">
-        <span class="tooltip" id="tooltip-comment">COMMENT</span>
-        <span class="flotr-comment-o circle-icon"></span>
-      </a>
+      <span class="tooltip" id="tooltip-comment">COMMENT</span>
+      <span class="flotr-comment-o circle-icon" onclick="goToComments()"></span>
     </div>
     <div class="bottom-button">
-      <a href="" id="buy-btn">
-        <span class="tooltip" id="tooltip-buy">BUY</span>
-        <span class="flotr-dollar circle-icon"></span>
-      </a>
+      <span class="tooltip" id="tooltip-buy">BUY</span>
+      <span class="flotr-dollar circle-icon" onclick="goToBuy()"></span>
     </div>
   </div>
 
@@ -96,7 +92,7 @@
   <%=image_tag("keyboard.png", id: "keyboard")%>
   <div id="welcome-info">
     <h3 class="main-text group">Click anywhere to close this.</h3>
-    <h3 class="main-text group">Click  <span class="flotr-info"></span>  to see this again.</h3>
+    <h3 class="main-text group">Click  <span class="flotr-info welcome-i"></span>  to see this again.</h3>
   </div>
 </div>
 
@@ -110,65 +106,7 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#back-btn").attr('href', $("#back-rb").attr('href'));
-    $("#comment-btn").attr('href', $("#link-rb").attr('href'));
-    $("#buy-btn").attr('href', $("#link-rb").attr('href'));
-    $("#info-title").text("Title: " + $("#title-rb").text());
-    if (!sessionStorage.seenInfo) {
-      info();
-      sessionStorage.seenInfo = "true";
-    }
-  });
-  var toggleMenu = function () {
-    $('#menu').toggleClass("activated");
-  };
-  var toggleLike = function () {
-    if ($("#like-btn").hasClass("flotr-heart-o")) {
-        $('#like-btn').removeClass("flotr-heart-o");
-        $('#like-btn').addClass("flotr-heart");
-    } else {
-        $('#like-btn').removeClass("flotr-heart");
-        $('#like-btn').addClass("flotr-heart-o");
-    }
-  };
-  var info = function() {
-    if ($('#bg').hasClass('blur')) {
-      hideInfo();
-    } else {
-      showInfo();
-    }
-    $('#welcome').toggleClass('invisible');
-  };
-  var hideInfo = function() {
-    $('#bg').removeClass('blur');
-    $('.circle-icon').css('opacity','0.2');
-    $('#pic-info').css('opacity','0.2');
-    $('.tooltip').css('opacity','0');
-  };
-  var showInfo = function() {
-    $('#bg').addClass('blur');
-    $('.circle-icon').css('opacity','1');
-    $('#pic-info').css('opacity','1');
-    $('.tooltip').css('opacity','1');
-  }
-  $('#welcome').click(function() {
-    info();
-  });
-  $(document).bind('keyup', function(e) {
-    var cyclePage = !(window.location.href.indexOf("/images/") >= 0);
-      if((e.which==73) && cyclePage) {
-        info();
-      } else if ((e.which==76) && cyclePage) {
-        toggleLike();
-      } else if ((e.which==67) && cyclePage) {
-        location.href = $("#comment-btn").attr('href');
-      }
-  });
-</script>
-
-<%= javascript_include_tag "arrow_nav" %>
+<%= javascript_include_tag "flotr_nav" %>
 <%= javascript_tag do %>
   setPageLimit(<%= @images.total_pages %>, "<%= request.path %>");
 <% end %>

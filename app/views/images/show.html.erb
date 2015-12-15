@@ -1,16 +1,7 @@
 <!-- This is for the righti-sdebar, the thing that comes up when you click Comment or Buy -->
-<!-- The bootleg solution I used was to append #comment or #buy to the end of the URL when
-the user clicks "Comment" or "Buy", and then use jQuery to only show the relevant sidebar -->
-
-<!-- I'm using a javascript history.back call to take the user back when they click "X" to close the sidebar.
-which seems to show mixed results on different browsers. At worst, it takes two clicks to return the user back
-to where they came from. It works better than going straght back to home, because it keeps the user in context
-of the last picture they were looking at, but try it out for yourselves and see what you think. -->
-
-<!-- If there's a better way to return the user to where they were, please FIX ME! -->
 
 <div id="right-sidebar" class="activated">
-  <span id="menu-close-btn"><a href="javascript:history.back(-1);">X</a></span>
+  <span id="menu-close-btn" onclick="goBack()">X</span>
   <div id="general-pic-info">
     <h1><%= @image.title %></h1>
     <h2>Tags: <%= raw tag_links(@image.all_tags) %></h2>
@@ -39,16 +30,49 @@ of the last picture they were looking at, but try it out for yourselves and see 
   </div>
 </div>
 
+<div id="menu"> <!--  Main menu, slides out from left-->
+  <span id="menu-close-btn" onclick="toggleMenu()">X</span>
+  <h1><a href="/">Flotr</a></h1>
+  <% if user_signed_in? %>
+    <h2><%= link_to 'Profile', profile_path %></h2>
+    <h2><%= link_to 'Settings', edit_user_registration_path %></h2>
+    <h2><%= link_to 'Browse Tags', browse_path %></h2>
+    <h2><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></h2>
+  <% else %>
+    <h2><%= link_to 'Log in', new_user_session_path %></h2>
+    <h2><%= link_to 'Sign up', new_user_registration_path %></h2>
+    <h2><%= link_to 'Browse Tags', browse_path %></h2>
+  <% end %>
+</div>
+
+<div id="controls"> <!-- Buttons/controls... the circular icons on the main page -->
+
+  <div id="controls-tl"> <!-- top-left -->
+    <div>
+      <span class="flotr-bars circle-icon" onclick="toggleMenu()"></span>
+      <span class="tooltip" id="tooltip-menu">MENU</span>
+    </div>
+  </div>
+
+  <div id="controls-bl" class="bottom-button"> <!-- bottom-left -->
+    <a href="<%= search_path %>" id="search-btn"><span class="tooltip" id="tooltip-search">SEARCH</span>
+    <span class="flotr-search circle-icon"></span></a>
+  </div>
+
+</div>
+
 <div id="bg">
   <%= image_tag @image.try(:image).url, :class => "bg-img" %>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(){
-    if ( document.location.href.indexOf('#comment') > -1 ) {
-      $('#comments').removeClass("invisible");
-    } else {
+    if ( sessionStorage.show == "buy" ) {
       $('#buy').removeClass("invisible");
+      sessionStorage.show = "";
+    } else {
+      $('#comments').removeClass("invisible");
+      sessionStorage.show = "";
     }
   });
 </script>
