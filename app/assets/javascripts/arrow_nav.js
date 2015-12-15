@@ -34,6 +34,9 @@ function nextPage(){
   }
   if(value <= total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
     location.href = p_path + "?page=" + value;
+  } else if (value > total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)) {
+    value = 1;
+    location.href = p_path + "?page=" + value;
   }
 }
 
@@ -44,5 +47,8 @@ function prevPage(){
   }
   if(value > 0 && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
     location.href = p_path+"?page="+value;
+  } else if (value <= 0 && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)) {
+    value = total_num_pages;
+    location.href = p_path + "?page=" + value;
   }
 }
