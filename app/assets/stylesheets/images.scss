@@ -495,6 +495,7 @@ input:disabled {
 
 /* SEARCH START ----------------------------------- */
 header form {
+  display: -webkit-inline-flex;
   display: inline-flex;
   vertical-align: middle;
 }
@@ -512,7 +513,7 @@ header form {
   margin: 0;
   border: 0;
   background-color: forestgreen;
-  padding: 5px 15px;
+  padding: 4px 15px 1px 15px;
   border-radius: 0 5px 5px 0;
 }
 /* SEARCH END ----------------------------------- */
