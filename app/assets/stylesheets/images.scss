@@ -487,6 +487,10 @@ header {
 #image-selector input {
   color: white;
 }
+input:disabled {
+  opacity: 0.5;
+  -webkit-filter: brightness(90%);
+}
 /* UPLOAD IMAGE END ----------------------------------- */
 
 /* SEARCH START ----------------------------------- */
