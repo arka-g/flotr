@@ -72,13 +72,13 @@ a:visited { color: white; }
 .main-subtitle {
   margin-top: 0;
   padding-top: 0;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-style: italic;
 }
 
 .main-text {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: lighter;
 }
 
@@ -94,6 +94,10 @@ a:visited { color: white; }
 #keyboard {
   width: 50%;
   max-width: 568px;
+}
+
+.welcome-i {
+  padding: 0 4px;
 }
 
 /* WELCOME SCREEN END -------------------------------- */
@@ -216,7 +220,7 @@ a:visited { color: white; }
 #info-tag {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #info-title {
@@ -261,7 +265,7 @@ a:visited { color: white; }
 
 /* MAIN MENU START ----------------------------------- */
 #menu-close-btn {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1em;
   font-weight: lighter;
   float: right;
@@ -284,7 +288,7 @@ a:visited { color: white; }
 }
 
 #menu h2 {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
 }
 
@@ -390,7 +394,7 @@ h3.main-text a:hover {
 .form-heading {
   text-align: center;
   color: white;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
 }
 
@@ -399,7 +403,7 @@ h3.main-text a:hover {
   color: white;
 }
 #cancel-group p {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
 }
 #cancel-group input {
@@ -443,6 +447,7 @@ header {
   color: white;
   height: 120px;
   width: 100vw;
+  border-bottom: 1px solid #333333;
 }
 #header-logo {
   width: 150px;
@@ -459,16 +464,13 @@ header {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: 1.75em;
 }
 /* PROFILE END --------------------------------------- */
 
 /* UPLOAD IMAGE START --------------------------------- */
-.upload-header {
-  border-bottom: 1px solid #cecece;
-}
 .new_image {
   padding-top: 170px;
   text-align: center;
@@ -533,7 +535,7 @@ header form {
 
 #right-sidebar h1 {
   padding: 5px 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
   font-size: 1.5em;
   margin-bottom: 0;
@@ -542,7 +544,7 @@ header form {
 #right-sidebar h2 {
   margin: 0;
   padding: 0 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: 1em;
 }
@@ -553,7 +555,7 @@ header form {
 
 #comments h3 {
   padding: 5px 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
   font-size: 1em;
   margin-bottom: 0;
@@ -562,7 +564,7 @@ header form {
 #comments h4 {
   margin: 0;
   padding: 0 20px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   font-size: .85em;
   margin-bottom: 20px;
@@ -623,7 +625,7 @@ header form {
 }
 
 #package-select h4 {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
   padding-left: 20px;
   margin-top: 5px;
@@ -638,4 +640,11 @@ header form {
 .comments-submit:hover {
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
+}
+
+@media screen and (min-width: 1681px) {
+    .circle-icon + span,
+    .bottom-button .tooltip {
+      font-size: 0.5em;
+    }
 }

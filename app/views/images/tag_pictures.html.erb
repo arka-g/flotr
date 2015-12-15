@@ -1,10 +1,17 @@
-<!-- FIX ME!! - I completely misesd this page. Will get to it later. -->
-<!-- It's what you see when you click on a specific tage from the "Browse Tags" view -->
+<header>
+  <div id="header-logo">
+    <a href="/"><h1 class="header-left">Flotr</h1></a>
+  </div>
+  <h1 id="browse-tags-title" class="header-center"><a href="<%= browse_path %>">Browse Tags</a> > <%= request.original_url.split('/')[-1].capitalize %></h1>
+</header>
 
-<%= will_paginate @images %>
-
-<% @images.each do |img| %>
-  <%= link_to img do %>
-    <%= image_tag img.image.url, :class => "grid-image" %>
+<div id="grid">
+  <% @images.each do |img| %>
+    <div class="grid-image">
+      <%= link_to img do %>
+        <%= image_tag img.image.url, :class => "grid-image" %>
+      <% end %>
+      <%= link_to img.title, img.image.url, :class => "grid-title" %>
+    </div>
   <% end %>
-<% end %>
+</div>
