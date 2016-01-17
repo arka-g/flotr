@@ -158,11 +158,26 @@ function nextPage(){
     value = 2;
   }
   if(value <= total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
-    location.href = p_path + "?page=" + value;
-  } else if (value > total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)) {
+    var url = p_path + "?page=" + value;
+    window.history.pushState("", "", url);
+  } else if (value > total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
     value = 1;
-    location.href = p_path + "?page=" + value;
+    var url = p_path + "?page=" + value;
+    window.history.pushState("", "", url);
   }
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: 'json',
+    data: {page: value},
+    success: function(data) {
+      $('#info-title').text(data.title);
+      $('#info-tag').text(data.tag);
+      $("#more-rb").attr('href', '/tags/' + data.tag + '?page=1');  //this sucks
+      $('img[class="bg-img"]').attr({src: data.url});
+    }
+  });
 }
 
 function prevPage(){
@@ -171,9 +186,24 @@ function prevPage(){
     value = parseInt(value.substring(value.lastIndexOf('=') + 1))-1;
   }
   if(value > 0 && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
-    location.href = p_path+"?page="+value;
+    var url = p_path+"?page="+value;
+    window.history.pushState("", "", url);
   } else if (value <= 0 && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)) {
     value = total_num_pages;
-    location.href = p_path + "?page=" + value;
+    var url = p_path + "?page=" + value;
+    window.history.pushState("", "", url);
   }
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: 'json',
+    data: {page: value},
+    success: function(data) {
+      $('#info-title').text(data.title);
+      $('#info-tag').text(data.tag);
+      $("#more-rb").attr('href', '/tags/' + data.tag + '?page=1');  //this sucks
+      $('img[class="bg-img"]').attr({src: data.url});
+    }
+  });
 }
