@@ -1,4 +1,4 @@
-<!-- This is for the righti-sdebar, the thing that comes up when you click Comment or Buy -->
+<!-- This is for the righti-sdebar, the thing that comes up when you click Comment -->
 
 <div id="right-sidebar" class="activated">
   <span id="menu-close-btn" onclick="goBack()">X</span>
@@ -22,11 +22,6 @@
     <!--  Upvote -->
     <!-- <%= @image.get_upvotes.size %> <br> -->
     <!-- <% end %> -->
-  </div>
-
-  <div id="buy" class="invisible">
-    <%= render partial: 'buy' %>
-    <!-- <%= link_to 'Edit', edit_image_path(@image) %> <br> -->
   </div>
 </div>
 
@@ -67,12 +62,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    if ( sessionStorage.show == "buy" ) {
-      $('#buy').removeClass("invisible");
-      sessionStorage.show = "";
-    } else {
-      $('#comments').removeClass("invisible");
-      sessionStorage.show = "";
-    }
+    $('#comments').removeClass("invisible");
+    sessionStorage.show = "";
   });
 </script>
