@@ -9,7 +9,7 @@ var p_path;
 // bootleg way of getting access to attributes of the images outside of that ruby loop
 // basically, when ruby paginates the images, I store relevant data in hidden elements on the page.
 // then, when I need it I just make a jQuery call to grab it.
-// currently doing this for the title, tag, buy, and comment links.
+// currently doing this for the title, tag, and comment links.
 $(document).ready(function() {
   imgCyclePage = window.location.href.indexOf("/images?page") >= 0;
   tagCyclePage = window.location.href.indexOf("/tags/") >= 0;
@@ -113,12 +113,6 @@ var showIcons = function() {
 
 var goToComments = function () {
   sessionStorage.show = "comments";
-  sessionStorage.previousPic = window.location.href;
-  location.href = $("#link-rb").attr('href');
-};
-
-var goToBuy = function () {
-  sessionStorage.show = "buy";
   sessionStorage.previousPic = window.location.href;
   location.href = $("#link-rb").attr('href');
 };
