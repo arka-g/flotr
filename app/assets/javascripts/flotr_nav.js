@@ -154,7 +154,7 @@ function nextPage(){
   if(parseInt(value) >= 1){
     value = parseInt(value.substring(value.lastIndexOf('=') + 1))+1;
   }
-  else {
+  else{
     value = 2;
   }
   if(value <= total_num_pages && (p_path == "/images" || p_path.indexOf('/tags/') >= 0)){
