@@ -4,6 +4,18 @@ class ImagesController < ApplicationController
 
   def index
     @tags = Tag.all.paginate(:page => params[:page], :per_page => 1)
+
+    @img = Hash.new
+    @tags.each do |tag|
+      @img[:url] = tag.images.first.image.url
+      @img[:title] = tag.images.first.title
+      @img[:tag] = tag.name
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @img }
+    end
   end
 
   def gotoImages
@@ -12,6 +24,18 @@ class ImagesController < ApplicationController
 
   def tags
     @images = Image.tagged(params[:tag]).paginate(:page => params[:page], :per_page => 1)
+
+    @img = Hash.new
+    @images.each do |img|
+      @img[:url] = img.image.url
+      @img[:title] = img.title
+      @img[:tag] = params[:tag]
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @img }
+    end
   end
 
   def browse_tags
