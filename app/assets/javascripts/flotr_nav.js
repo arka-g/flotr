@@ -169,6 +169,7 @@ function nextPage(){
       $('#info-title').text(data.title);
       $('#info-tag').text(data.tag);
       $("#more-rb").attr('href', '/tags/' + data.tag + '?page=1');  //this sucks
+      $("#link-rb").attr('href', '/images/' + data.id);  //this sucks
       $('img[class="bg-img"]').attr({src: data.url});
     }
   });
@@ -197,6 +198,7 @@ function prevPage(){
       $('#info-title').text(data.title);
       $('#info-tag').text(data.tag);
       $("#more-rb").attr('href', '/tags/' + data.tag + '?page=1');  //this sucks
+      $("#link-rb").attr('href', '/tags/' + data.id);  //this sucks
       $('img[class="bg-img"]').attr({src: data.url});
     }
   });

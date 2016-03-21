@@ -7,6 +7,7 @@ class ImagesController < ApplicationController
 
     @img = Hash.new
     @tags.each do |tag|
+      @img[:id] = tag.images.first.id
       @img[:url] = tag.images.first.image.url
       @img[:title] = tag.images.first.title
       @img[:tag] = tag.name
@@ -27,6 +28,7 @@ class ImagesController < ApplicationController
 
     @img = Hash.new
     @images.each do |img|
+      @img[:id] = img.id
       @img[:url] = img.image.url
       @img[:title] = img.title
       @img[:tag] = params[:tag]
